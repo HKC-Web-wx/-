@@ -1,0 +1,23 @@
+<!--pages/advertising/advertising.wxml-->
+<view>
+    <navigator class='adv' hover-stay-time='200' url='/pages/detail/detail'>
+        <image src='https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/92874a8d86eac2a150dbd1b1fcb6ac76_121_121.jpg'></image>
+        <text>珀莱雅(PROYA)海洋美妆品牌，美妆上市公司。秉承着探索发现的品牌精神，海洋珀莱雅致力于发掘天然海洋成分，借由先进科技，为每一个消费者提供安全高效的美妆产品</text>
+    </navigator>
+    <navigator class='adv' hover-stay-time='200' url='/pages/detail/detail'>
+        <image src='https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/58c35d5c9dfa9a9b41559f23d3152188_121_121.jpg'></image>
+        <text>美肤宝（MEIFUBAO）,致力于匠心传承东方养肤之道，萃取天然植物臻贵营养，糅合先进技术，遵循汉方“君臣佐使”的组方配伍原则，以“平衡•调•养”为养肤理念，让肌肤呈现出健康亮丽的完美状态.</text>
+    </navigator>
+    <navigator class='adv' hover-stay-time='200' url='/pages/detail/detail'>
+        <image src='https://ecmb.bdimg.com/tam-ogel/f2e1aff288b72ad1a2b4ebec3c44f551_121_121.jpg'></image>
+        <text>热过夏天,让这个夏季不惧挥汗,准备好热力全开,享受畅快运动体验.扬尼斯·阿德托昆博签名球鞋强势上场,助力你疾速狂力尽掌控.</text>
+    </navigator>
+    <navigator class='adv' hover-stay-time='200' url='/pages/detail/detail'>
+        <image src='https://ecmb.bdimg.com/tam-ogel/b575ede8001b530b4aa5c2c806906df6_121_121.jpg'></image>
+        <text>欢迎来到adidas阿迪达斯中国官方商城.您可在此选购跑步、足球、篮球、训练等全系列专业运动装备,以及adidas Originals、adidas neo等时尚潮流商品,更有限量发售商品的一手资讯</text>
+    </navigator>
+    <navigator class='adv' hover-stay-time='200' url='/pages/detail/detail'>
+        <image src='https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3745191688,2795990291&fm=58&bpow=992&bpoh=1024'></image>
+        <text>必胜客是比萨专卖连锁企业之一，由法兰克·卡尼和丹·卡尼两兄弟在1958年，凭着由母亲借来的600美元于美国堪萨斯州威奇托创立首间必胜客餐厅。它的标识特点是把屋顶作为餐厅外观显著标志。</text>
+    </navigator>
+</view>

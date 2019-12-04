@@ -1,0 +1,22 @@
+<!--pages/picupload/picupload.wxml-->
+<button type="default" size="mini" bindtap="addImage" class="addButton">添加图片</button>
+<view class="inputBox">
+    名字：<input type="text" class="name" bindinput="nameInput"></input>
+    库存：<input type="text" class="stock" bindinput="stockInput"></input>
+    描述：<input type="text" class="describe" bindinput="describeInput"></input>
+</view>
+
+
+<!-- 对添加的图片进行预览 -->
+<view class="image-box">
+    <block wx:for="{{image}}" wx:key="{{idx}}">
+        <view class="image-wrap">
+          <!-- 图片缩略图  -->
+          <image class="image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="lookImage"></image>
+          <!-- 移除图片的按钮  -->
+          <view class="image-remove" data-idx="{{index}}" bindtap="removeImage">移除</view>
+        </view>
+    </block>
+</view>
+
+<button class="submit-btn" type="primary" bindtap="submitImage">提交</button>

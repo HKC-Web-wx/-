@@ -1,0 +1,16 @@
+/* pages/detail/detail.wxss */
+.card{
+    background-color: #fff;
+    border: 1rpx solid #ddd;
+    border-radius: 10rpx;
+    margin: 60rpx 20rpx;
+    padding: 20rpx 35rpx;
+    display: flex;
+    flex-direction: column;
+}
+.card-read{
+    
+    border-top: 1rpx solid #ddd;
+    font-size: 14px;
+    color: #666;
+}

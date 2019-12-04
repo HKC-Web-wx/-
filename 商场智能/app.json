@@ -1,0 +1,32 @@
+{
+    "pages": [
+        "pages/advertising/advertising",
+        "pages/detail/detail",
+        "pages/video/video",
+        "pages/picupload/picupload",
+        "pages/index/index",
+        "pages/survey/survey",
+        "pages/sucs/sucs"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#000",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/advertising/advertising",
+                "text": "广告列表"
+            },
+            {
+                "pagePath": "pages/video/video",
+                "text": "视频"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
+}

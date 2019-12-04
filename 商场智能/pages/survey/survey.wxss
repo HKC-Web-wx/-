@@ -1,0 +1,70 @@
+/* pages/survey/survey.wxss */
+page{
+  background-color: #fff;
+}
+.sy_title {
+  text-align: center;
+  /* padding: 20rpx; */
+  font-size: 25px;
+  font-weight: 700;
+  color: rgb(90, 150, 253);
+}
+
+.sy_page {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx 30rpx;
+}
+
+.sy_desc {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 30rpx;
+  padding: 10rpx 0 60rpx;
+  border-bottom: 1rpx dashed #ccc;
+}
+.pgms_lb{
+    font-weight: 700;
+}
+.pgms_lb,.pgms_title{
+  margin:10rpx 0;
+  font-size: 16px;
+}
+.pgms_item{
+  margin:20rpx 5rpx;
+  padding:10rpx 5rpx;
+}
+.radio-group,.checkbox-group{
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-right: none;
+  margin-top:20rpx;
+  padding: 0;
+  display: flex;
+  border-radius: 5rpx;
+  flex-wrap: wrap;
+}
+.radio,.checkbox{
+  display: inline-block;
+  border-right:1rpx solid #ccc;
+  border-bottom:1rpx solid #ccc;
+  box-sizing: border-box;
+  width: 100%;
+  padding:15rpx 20rpx;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.radio:first-child{
+border-radius: 6rpx 6rpx 0 0;
+}
+.radio:last-child{
+border-radius: 0 0 6rpx 6rpx;
+
+}
+.btn_info{
+  width: 90%;
+  border-radius: 10rpx;
+  background-color:#1ea0fa;
+  color: #fff;
+}

@@ -1,0 +1,4 @@
+<!--pages/sucs/sucs.wxml-->
+<view class="bar">
+    <text>您的答卷已经提交，我们将会根据答卷为您推荐资讯，感谢您的参与！({{countDownNum}})</text>
+</view>

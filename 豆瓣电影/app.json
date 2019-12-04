@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/main/main",
+    "pages/self/self",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#777",
+    "navigationBarTitleText": "豆瓣电影Top排行",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#eee",
+    "selectedColor": "#455",
+    "backgroundColor": "#777",
+    "borderStyle": "white",
+    "position": "top",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "推荐"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap26.json"
+}

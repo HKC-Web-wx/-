@@ -1,0 +1,8 @@
+<!--pages/detail/detail.wxml-->
+<view class='card'>
+  <text class='card-tx'>
+    　　作为全球领先的科技公司,无论在国内还是国外,华为都是业界关注的焦点。据国外媒体报道,华为高层日前表示,接下来的计划是推出基于Windows 8操作系统的平板电脑,另外,今年将投入两亿美元宣传华为品牌。如此给力规划,令无数网友甚至发出“壮哉我大华为”的口号。 
+  </text>
+  <image src='/images/02.png'></image>
+  <text class='card-read arrow'>查看详情</text>
+</view>

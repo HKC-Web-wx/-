@@ -1,0 +1,277 @@
+ul{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.nav-big-box{
+	margin-bottom: 5px;
+}
+/*第一部分*/
+.first-block{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: nowrap;
+	flex-grow: 1;
+	border-top: 1px solid #aaa;
+}
+.first-block li{
+	width: 100%;
+	position: relative;
+}
+.first-block li a{
+	display: block;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	color: #777;
+	font-size: 15px;
+}
+.first-block li:hover a{
+	color: #ff6d6d;
+}
+.first-block li::before{
+	content: "";
+	width: 0;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	border-bottom: 1px solid #ff6d6d;
+	transition: 0.3s all linear;
+}
+.first-block li:hover::before{
+	width: 100%;
+	left: 0;
+}
+.first-block li:hover ~ .first-block li::before{
+	left: 0;
+}
+
+
+/*第二部分*/
+.sb-box{
+	padding: 0;
+	margin: 0 auto;
+}
+.second-block{
+	text-align: center;
+	width: 555px;
+	height: 368px;
+	margin: 130px 10px 100px 10px;
+	background-color: #fff;
+	box-shadow: 0px 15px 15px #aaa;
+	position: relative;
+}
+.second-block::before{
+	content: "";
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border:4px solid #fff;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-top: -102px;
+	margin-left: -102px;
+}
+.second-block:hover::before{
+	border:4px solid #ff6d6d;
+}
+.sb-left::before{
+	background: url(../../images/bride.jpg);
+}
+.sb-right::before{
+	background: url(../../images/groom.jpg);
+}
+.second-block h5{
+	font-size: 24px;
+	margin-top: 110px;
+}
+.second-block p{
+	font-size: 15px;
+	line-height: 24px;
+	color: #997e61;
+}
+.second-block ul{
+	width: 180px;
+	margin: 0 auto;
+	height: 43px;
+}
+.second-block ul li{
+	float: left;
+	width: 25%;
+}
+.second-block ul li a{
+	display: block;
+	border-radius: 50%;
+	color: #777;
+}
+.second-block ul li a:hover{
+	color: #ff6d6d;
+	border:1px solid #ff6d6d;
+}
+.sb-button{
+	width: 125px;
+	height: 39px;
+	background-color: #ff6d6d;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+	margin: 15px auto;
+	border-radius: 5px;
+	font-size: 12px;
+}
+.sb-button:hover{
+	background-color: #333;
+}
+
+
+/*第三部分*/
+.tb-box{
+	position: relative;
+	max-width: 1500px;
+	min-width: 1200px;
+}
+.tb-box::before{
+	content: "";
+	width: 2px;
+	height: 100%;
+	background-color: #aaa;
+	position: absolute;
+	top: 60px;
+	left: 50%;
+	margin-left: -1px;
+}
+.third-block h5{
+	font-size: 28px;
+	color: #ff6d6d;
+}
+.third-block p{
+	font-size: 16px;
+	line-height: 22px;
+}
+.tb-left{
+	text-align: right;
+	padding-left: 70px;
+}
+.tb-l-box{
+	margin-top: 270px;
+}
+.tb-right{
+	text-align: left;
+	padding-right: 70px;
+}
+.tb-r-box1{
+	margin-top: 215px;
+	margin-bottom: 150px;
+}
+.tb-r-box2{
+	margin-top: 265px;
+}
+.tb-hear{
+	position: relative;
+}
+.tb-hear::before{
+	content: "\f004";
+	font-family: 'icomoon';
+	width: 60px;
+	height: 60px;
+	font-weight: normal;
+	font-style: normal;
+	background-color: #ff6d6d;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 24px;
+	position: absolute;
+	text-align: center;
+	line-height: 60px;
+}
+.tb-left div::before{
+	top: 0;
+	right: -50%;
+	margin-right: 59px;
+}
+.tb-right div::before{
+	top: 0;
+	left: -50%;
+	margin-left: 59px;
+}
+
+/*第四部分*/
+.fourth-block{
+	max-width: 1500px;
+	min-width: 1200px;
+	margin: 0 auto;
+}
+.fourth-block li{
+	float: left;
+	width: 25%;
+	position: relative;
+}
+.fourth-block li a{
+	display: block;
+}
+.fourth-block li img{
+	width: 100%;
+	height: auto;
+}
+.fourth-block li::before{
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-color: #ff6d6d;
+	opacity: 0.6;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.fourth-block li:hover::before,.fourth-block li:hover::after{
+	display: block;
+}
+.fourth-block li::after{
+	content: "\f002";
+	font-family: 'icomoon';
+	font-weight: normal;
+	font-size: 24px;
+	font-style: normal;
+	width: 50px;
+	height: 50px;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -25px;
+	margin-top: -25px;
+	text-align: center;
+	line-height: 50px;
+	display: none;
+}
+
+
+/*第五部分*/
+.fifth-block{
+	width: 150px;
+	margin :0 auto;
+}
+.fifth-block li{
+	float: left;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin: 0 4px;
+}
+.fifth-block li a {
+	display: block;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+}
+.fifth-block li:hover{
+	background-color: #ff6d6d;
+}

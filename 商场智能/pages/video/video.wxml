@@ -1,0 +1,24 @@
+<!--pages/video/video.wxml-->
+<view>
+  视频
+</view>
+<!--pages/video/video.wxml-->
+<view>
+<view  class="video">
+        <video id="myVideo1" class="myVideo"  src="http://video.pearvideo.com/mp4/adshort/20181117/cont-1477753-13248875_adpkg-ad_hd.mp4" custom-cache="{{false}}" >
+    </video>
+</view>
+
+<view  class="video">
+    <video id="myVideo2" class="myVideo"  src="http://video.pearvideo.com/mp4/adshort/20181116/cont-1477146-13247738_adpkg-ad_hd.mp4" custom-cache="{{false}}">
+    </video>
+</view>
+
+
+
+
+<view  class="video">
+    <video id="myVideo3" class="myVideo"  src="http://video.pearvideo.com/mp4/short/20181118/cont-1478240-13253290-hd.mp4" custom-cache="{{false}}">
+    </video>
+</view>    
+</view>

@@ -1,0 +1,28 @@
+<!--pages/survey/survey.wxml-->
+<view class="page">
+    <form class="sy_page" bindsubmit="formSubmit">
+        <view class="sy_title">
+            <text>商场购物信息推送调查</text>
+        </view>
+        <view class="sy_desc">
+            <text decode="&emsp">尊敬的先生/女士:\n&emsp;&emsp; 欢迎光临本商场，请您根据自己的实际感受和看法如实填写，本问卷采用匿名形式，所有数据仅供此商场信息进行推送，帮助您了解并找到想要购买的商品。</text>
+        </view>
+        <view class="sy_pgms">
+            <view class="pgms_item" wx:for="{{items}}" wx:for-item="item1" wx:for-index="index1" wx:key="{{item1.id}}">
+                <view class="pgms_title">{{item1.title}}</view>
+                <radio-group wx:if="{{item1.type=='radio'}}" class="radio-group" data-id="{{item1.id}}" name="radio-group" bindchange="radioChange">
+                    <label class="radio" wx:for="{{item1.value.answer}}" wx:key="{{item1.value.num}}">
+                        <radio value="{{index}}" data-index="{{index}}" data-id="{{item1.id}}" checked="{{item1.value.checked}}" />{{item}}
+                    </label>
+                </radio-group>
+
+                <checkbox-group wx:elif="{{item1.type=='checkbox'}}" class="checkbox-group" data-id="{{item1.id}}" name="checkbox-group" bindchange="radioChange">
+                    <label class="checkbox" wx:for="{{item1.value.answer}}" wx:key="{{item1.value.num}}">
+                        <checkbox value="{{index}}" data-index="{{index}}" data-id="{{item1.id}}" checked="{{item1.value.checked}}">{{item}}</checkbox>
+                    </label>
+                </checkbox-group>
+            </view>
+        </view>
+        <button class="{{bg?'btn_info':'btn_outpu'}}" form-type="submit">{{bg?'提交':'提交成功'}}</button>
+    </form>
+</view>

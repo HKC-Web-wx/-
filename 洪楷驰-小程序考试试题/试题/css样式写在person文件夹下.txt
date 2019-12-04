@@ -1,0 +1,2 @@
+1.自己写的css样式放在person文件夹下
+2.font字体图标引入在person文件夹下font.css内完成

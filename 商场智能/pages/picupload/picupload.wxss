@@ -1,0 +1,32 @@
+.addButton{
+    margin-left:20rpx;
+}
+.image-box{
+    display:flex;
+    flex-wrap: wrap;
+}
+.image-wrap{
+    width: 200rpx;
+    height: 250rpx;
+    padding: 20rpx;
+}
+.image-wrap image{
+    width: 200rpx;
+    height: 200rpx;
+}
+.image-wrap .image-remove{
+    font-size:14px;
+    text-align: right;
+    color:#aaa;
+}
+.submit-btn{
+    margin-top:100rpx;
+}
+.inputBox {
+    font-size: 14px;
+    padding:0 20rpx;
+    margin-top: 10rpx;
+}
+.inputBox input{
+    border: 1px solid #ddd;
+}
