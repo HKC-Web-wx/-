@@ -1,0 +1,18 @@
+<view class="in-box">
+  <view wx:if="{{interviewAddList.length == 0}}">请添加您已面试的相关信息</view>
+  <view wx:for="{{interviewAddList}}" wx:key="key" wx:for-item="interviewAddList" class="interviewAddList">
+    <view class="interviewAddList_company" >{{ interviewAddList.company }}</view>
+    <view class="interviewAddList_box">
+      <view class="interviewAddList_position" >职位：{{ interviewAddList.position }}</view>
+      <view class="interviewAddList_title" wx:if="{{interviewAddList.title == null}}">招聘会：无</view>
+      <view class="interviewAddList_title"  wx:else>招聘会：{{ interviewAddList.title }}</view>
+      <view class="interviewAddList_time" >时间：{{ interviewAddList.face_time }}</view>
+    </view>
+    <view class="edit" bindtap="edit_face" data-id="{{interviewAddList.id}}" data-company="{{interviewAddList.company}}" data-position="{{interviewAddList.position}}" data-title="{{interviewAddList.title}}" data-pid="{{interviewAddList.pid}}" data-face_time="{{interviewAddList.face_time}}">修改</view>
+  </view>
+</view>
+ 
+
+<view class="add-box">
+  <button bindtap="add">添加已面试信息</button>
+</view>

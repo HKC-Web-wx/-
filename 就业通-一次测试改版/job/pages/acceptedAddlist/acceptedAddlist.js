@@ -56,6 +56,18 @@ Page({
       url: '/pages/accepted/accepted?sid=' + this.data.sid,
     })
   },
+  edit_luqu: function (e) {
+    let id = e.currentTarget.dataset.id
+    let company = e.currentTarget.dataset.company
+    let position = e.currentTarget.dataset.position
+    let title = e.currentTarget.dataset.title
+    let pid = e.currentTarget.dataset.pid
+    let luqu_time = e.currentTarget.dataset.luqu_time
+    console.log(pid)
+    wx.navigateTo({
+      url: '/pages/editAccepted/editAccepted?id=' + id + '&company=' + company + '&position=' + position + '&title=' + title + '&luqu_time=' + luqu_time + '&pid=' + pid
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

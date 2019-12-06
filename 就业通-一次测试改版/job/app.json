@@ -14,8 +14,10 @@
     "pages/enrolment/enrolment",
     "pages/interviewed/interviewed",
     "pages/interviewAddList/interviewAddList",
+    "pages/editInterview/editInterview",
     "pages/accepted/accepted",
     "pages/acceptedAddlist/acceptedAddlist",
+    "pages/editAccepted/editAccepted",
 
     "pages/th_person/th_person",
     "pages/classlist/classlist",

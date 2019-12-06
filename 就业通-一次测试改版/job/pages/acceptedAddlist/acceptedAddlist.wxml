@@ -8,6 +8,7 @@
       <view class="acceptedAddlist_title" wx:else>招聘会：{{ acceptedAddlist.title }}</view>
       <view class="acceptedAddlist_time">时间：{{ acceptedAddlist.luqu_time }}</view>
     </view>
+    <view class="edit" bindtap="edit_luqu" data-id="{{acceptedAddlist.id}}" data-company="{{acceptedAddlist.company}}" data-position="{{acceptedAddlist.position}}" data-title="{{acceptedAddlist.title}}" data-pid="{{acceptedAddlist.pid}}" data-luqu_time="{{acceptedAddlist.luqu_time}}">修改</view>
   </view>
 </view>
 

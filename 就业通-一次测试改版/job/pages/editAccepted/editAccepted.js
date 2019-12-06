@@ -6,74 +6,83 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index:'',
-    inValue:'',
+    index: '',
+    inValue: '',
     dateValue: '',
-    sid:''
+    sid: '',
+    company: '',
+    position: '',
+    title: '无',
+    id: '',
+    luqu_time: '',
+    fairboolen: false,
+    pid: '',
+    timeboolen: false
   },
-  inBindchange:function(e){
+  inBindchange: function (e) {
     console.log(e)
     var that = this
     that.setData({
-      index:e.detail.value
+      index: e.detail.value,
+      fairboolen: true
     })
-    
   },
   datePickerBindchange: function (e) {
-    this.setData({
-      dateValue: e.detail.value
+    var that = this;
+    that.setData({
+      timeboolen: true,
+      dateValue: e.detail.value,
     })
   },
-  formSubmit:function(e){
+  formSubmit: function (e) {
+    console.log(e.detail)
     var that = this;
-    var face_time= e.detail.value.time;
-    var company= e.detail.value.company;
-    var position= e.detail.value.position;
-    if (e.detail.value.title){
+    var company = e.detail.value.company;
+    var position = e.detail.value.position;
+    if (that.data.fairboolen == false) {
+      that.setData({
+        pid: that.data.pid
+      })
+    } else if (that.data.fairboolen == true) {
       e.detail.value.title = that.data.inValue[e.detail.value.title].title
-      var pid = that.data.inValue[that.data.index].id
-    }else{
+      that.setData({
+        pid: that.data.inValue[that.data.index].id
+      })
+    }
+    if (that.data.timeboolen == false) {
+      that.setData({
+        luqu_time: that.data.luqu_time
+      })
+    } else if (that.data.timeboolen == true) {
+      that.setData({
+        luqu_time: that.data.dateValue
+      })
+    }
+    if (!company) {
       wx.showToast({
-        title: '请选择招聘会',
+        title: '公司不能为空',
+        icon: "none"
+      })
+      return;
+    } else if (!position) {
+      wx.showToast({
+        title: '职位不能为空',
         icon: "none"
       })
       return;
     }
-    if(!face_time){
-      wx.showToast({
-        title: '请选择招聘会',
-        icon: "none"
-      })
-      return;
-    }else if(!company){
-      wx.showToast({
-        title: '请选择招聘会',
-        icon: "none"
-      })
-      return;
-    }else if(!position){
-      wx.showToast({
-        title: '请选择招聘会',
-        icon: "none"
-      })
-      return;
-    }
-    wx.showLoading({
-      title: '提交中..',
-      mask:true
-    })
     wx.showLoading({
       title: '提交数据中',
       mask: true
     })
     wx.request({
-      url: 'https://test.hivetech.cn/hkc/job/Home/Fair/add_interview',
+      url: 'https://test.hivetech.cn/hkc/job/Home/Student/stu_edit_luqu',
       method: 'POST',
       header: { "Content-Type": "application/x-www-form-urlencoded" },
       data: {
-        pid: that.data.inValue[that.data.index].id,
-        face_time: e.detail.value.time,
-        stu_id: that.data.sid,
+        id: that.data.id,
+        pid: that.data.pid,
+        luqu_time: that.data.luqu_time,
         company: e.detail.value.company,
         position: e.detail.value.position
       },
@@ -83,17 +92,33 @@ Page({
         wx.hideLoading();
       }
     })
-},
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log(options)
-    this.setData({
-      sid:options.sid
-    })
+    var that = this;
+    if (options.title == "null") {
+      that.setData({
+        id: options.id,
+        company: options.company,
+        position: options.position,
+        title: '无',
+        luqu_time: options.luqu_time,
+        pid: options.pid
+      })
+    } else {
+      that.setData({
+        id: options.id,
+        company: options.company,
+        position: options.position,
+        title: options.title,
+        luqu_time: options.luqu_time,
+        pid: options.pid
+      })
+    }
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -114,7 +139,7 @@ Page({
       success: function (res) {
         console.log(res.data)
         res.data.unshift({
-          id:0,
+          id: 0,
           title: '无'
         })
         that.setData({
@@ -128,34 +153,34 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   }
 })

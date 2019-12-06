@@ -22,7 +22,6 @@ Page({
     this.setData({
       sid:options.sid
     })
-    this.interviewAddList()
   },
   interviewAddList:function(){
     var that = this;
@@ -51,20 +50,32 @@ Page({
     })
   },
 
-add:function(){
-  wx.showToast({
-    title: '加载中..',
-    icon: "loading",
-    mask:true,
-  })
-  wx.navigateTo({
-    url: '/pages/interviewed/interviewed?sid=' + this.data.sid,
-    success:function(){
-      wx.hideLoading();
-      wx.hideToast();
-    }
-  })
-},
+  add:function(){
+    wx.showToast({
+      title: '加载中..',
+      icon: "loading",
+      mask:true,
+    })
+    wx.navigateTo({
+      url: '/pages/interviewed/interviewed?sid=' + this.data.sid,
+      success:function(){
+        wx.hideLoading();
+        wx.hideToast();
+      }
+    })
+  },
+  edit_face:function(e){
+    let id = e.currentTarget.dataset.id
+    let company = e.currentTarget.dataset.company
+    let position = e.currentTarget.dataset.position
+    let title = e.currentTarget.dataset.title
+    let pid = e.currentTarget.dataset.pid
+    let face_time = e.currentTarget.dataset.face_time
+    console.log(pid)
+    wx.navigateTo({
+      url: '/pages/editInterview/editInterview?id=' + id + '&company=' + company + '&position=' + position + '&title=' + title + '&face_time=' + face_time + '&pid=' + pid
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
