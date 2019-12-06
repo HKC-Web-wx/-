@@ -1,0 +1,112 @@
+page{
+  height: 100%;
+}
+.fw{
+  position: relative;
+}
+.tit{
+  font-family: 宋体;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  margin: 30rpx 0;
+}
+.school,.time{
+  text-align: center;
+}
+.p{
+  font-size: 30rpx;
+  text-indent: 24px;
+  color: #666;
+  padding: 20rpx;
+  line-height: 60rpx;
+}
+.p_notcie{
+  color: #666;
+  font-size: 30rpx;
+  padding: 20rpx;
+
+}
+.img{
+  height: 340rpx;
+}
+.xlsx{
+  font-size: 10px;
+}
+.enrolment{
+  width: 300rpx;
+  height: 60rpx;
+  border-radius: 14rpx;
+  background-color: #07c160;
+  color: #FFF;
+  text-align: center;
+  line-height: 60rpx;
+  margin: 70rpx auto;
+}
+.enrolment:hover{
+  opacity: 0.7;
+}
+.enrolmented{
+  width: 300rpx;
+  height: 60rpx;
+  border-radius: 14rpx;
+  background-color: #ccc;
+  color: #FFF;
+  text-align: center;
+  line-height: 60rpx;
+  margin: 70rpx auto;
+}
+.msg{
+  color: #5FB7EB;
+  font-size: 15px;
+  position: absolute;
+  right: 30rpx;
+}
+.msgbox{
+  width: 100%;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  padding-top: 25rpx;
+}
+.msgbox > view{
+  margin: 20rpx;
+}
+.msg-list{
+  border-bottom: 1px solid #fff;
+  padding: 18rpx 0;
+  position: relative;
+}
+.le_fw-leinfo{
+  width: 80%;
+  margin: 0 auto;
+}
+.avatarurl{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  background-color: #5FB7EB;
+  float: left;
+}
+.username{
+  font-size: 14px;
+  display: inline-block;
+  margin-right: 30rpx;
+}
+.content{
+  color: #aaa;
+  font-size: 30rpx;
+  margin: 10rpx;
+  line-height: 40rpx;
+}
+.addtime{
+  font-size: 12px;
+  color: #aaa;
+  text-align: right;
+  margin-right: 12rpx;
+  display: inline-block;
+}
+

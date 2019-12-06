@@ -1,0 +1,35 @@
+<!--pages/ad&le-editstudent/ad&le-editstudent.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="subox">
+
+    <view>姓名</view>
+    <input type="text" name="stu_name" maxlength="5" placeholder="请输入姓名" value="{{name}}"></input>
+
+    <view>性别</view>
+    <radio-group class="radio-group" bindchange="radioChange" name="stu_sex">
+      <radio class="radio" value="男" checked="{{sex == '男' ? true : false}}">男</radio>
+      <radio class="radio" value="女" checked="{{sex == '女' ? true : false}}">女</radio>
+    </radio-group>
+
+    <view>学号</view>
+    <input type="number" name="stu_code" maxlength="12" placeholder="请输入学号" value="{{code}}"></input>
+
+    <view>班级</view>
+    <view>
+      <picker mode="selector" range="{{inValue}}" range-key="classname" bindchange="inBindchange" name="classname">
+        <view wx:if="{{classboolen == false}}">{{classname}}</view>
+        <view wx:elif="{{classboolen == true}}">{{inValue[index].classname}}</view>
+      </picker>
+    </view>
+
+    <view>手机号</view>
+    <input type="number" name="stu_phone" maxlength="11" placeholder="请输入手机号码" value="{{phone}}"></input>
+
+  </view>
+
+  <view class="btn-box">
+    <button formType="submit">确定</button>
+  </view>
+</form>
+
+

@@ -1,0 +1,33 @@
+/* pages/ad_filelist/ad_filelist.wxss */
+page{
+  height: 100%;
+}
+.fw{
+  position: relative;
+}
+.tit{
+  font-family: 宋体;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  margin: 30rpx 0;
+}
+.school,.time{
+  text-align: center;
+}
+.p{
+  font-size: 30rpx;
+  text-indent: 24px;
+  color: #666;
+  padding: 20rpx;
+  line-height: 60rpx;
+}
+.p_notcie{
+  color: #666;
+  font-size: 30rpx;
+  padding: 20rpx;
+
+}
+/* .xlsx{
+  font-size: 10px;
+} */

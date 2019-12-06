@@ -1,0 +1,20 @@
+.msg-title{
+  width: 100%;
+  margin: 25rpx auto;
+  text-align: center;
+}
+.msgtext{
+  width: 500rpx;
+  height: 200rpx;
+  border: 1rpx solid #07c160;
+  border-radius: 15rpx;
+  margin: 25rpx auto;
+  margin-bottom: 0;
+  padding: 15rpx;
+  box-sizing: border-box;
+}
+.msg-btn{
+  margin-top: 30rpx;
+  background-color: #07c160;
+  color: #fff;
+}

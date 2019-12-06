@@ -1,0 +1,7 @@
+<!--pages/le_messages/le_messages.wxml-->
+<view class="stu_msg">留言内容: {{stu_content}}</view>
+<form bindsubmit="bindFormSubmit" data-id="{{fw.id}}">
+    <textarea placeholder="写点什么吧~~" maxlength="125" name="textarea" class="msgtext"></textarea>
+    <button form-type="submit" class="msg-btn"> 提交 </button>
+</form>
+  

@@ -1,0 +1,39 @@
+page{
+  background-color: #f4f4f4;
+}
+.enrolment{
+  width: 95%;
+  height: 240rpx;
+  border: 1rpx solid #fff;
+  background-color: #fff;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+  box-shadow: 2rpx 5rpx 5rpx #ccc;
+  position: relative;
+}
+.enrolment_img{
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #07c160;
+  float: left;
+  margin: 15rpx;
+}
+.enrolment_title{
+  color: #666;
+  font-size: 36rpx;
+  font-weight: 700;
+  margin: 20rpx;
+}
+.enrolment_box{
+  margin: 15rpx 15rpx;
+  display: inline-block;
+  line-height: 50rpx;
+}
+.enrolment_time{
+  font-size: 32rpx;
+  color: #ccc;
+}
+.enrolment_address{
+  font-size: 32rpx;
+  color: #ccc;
+}

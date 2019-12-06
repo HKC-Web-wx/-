@@ -1,0 +1,14 @@
+<!--pages/addclass/addclass.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="subox">
+
+    <view>班级</view>
+    <input type="text" name="classname" maxlength="20" placeholder="请输入班级名称"></input>
+
+  </view>
+
+  <view class="btn-box">
+    <button formType="submit">确定</button>
+  </view>
+</form>
+

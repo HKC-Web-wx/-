@@ -1,0 +1,47 @@
+<!--pages/le_filelist/le_filelist.wxml-->
+<view class="le_fw" wx:for="{{le_fw}}" wx:key="key" wx:for-item="le_fw">
+  <view>
+      <view class="tit">{{ le_fw.title }}</view> 
+      <view class="p">{{ le_fw.details }}</view>
+      <view class="p_notcie">时间：{{ le_fw.create_time }}</view>
+      <view class="p_notcie">地点：{{ le_fw.address }}</view>
+      <view class="p_notcie">主办单位：珠海城市职业技术学院</view>
+      <!--
+      <view>特此通告。</view>
+      <view>附件：珠海城市职业技术学院2019届毕业生校园招聘会参会企业一览表（请自行下载）</view>
+      <view class="school">珠海城市职业技术学院</view>
+      <view class="time">2018年12月3日</view>
+      <view class="xlsx">附件【2019.xlsx】已下载68次</view>
+      -->
+  </view>
+ 
+  <view class="msgbox">
+
+    <view wx:for="{{messagelist}}" wx:key="key" wx:for-item="messagelist" data-id="{{messagelist.id}}" class="msg-list">
+
+      <view class="le_fw-stuinfo">
+        <image class="avatarurl" src="{{messagelist.avatarurl}}"></image>
+        <view class="username">{{messagelist.username}}</view>
+        <view class="addtime">{{ messagelist.create_time }}</view>
+        <view class="content">{{messagelist.content}}</view>
+      </view>
+      
+      <view class="display">
+        <view class="block" catchtap="block" wx:if="{{messagelist.state == 1}}" data-id="{{messagelist.id}}">显示</view>
+        <view class="hidden" catchtap="hidden" wx:if="{{messagelist.state == 0}}" data-id="{{messagelist.id}}">隐藏</view>
+        <view class="reply" catchtap="reply" data-id="{{messagelist.id}}" data-content="{{messagelist.content}}">回复</view>
+      </view>
+      
+
+      <view class="le_fw-leinfo">
+        <view class="username" wx:if="{{messagelist.lead_name !== null}}">{{ messagelist.lead_name }}</view>
+        <view class="content" wx:if="{{messagelist.lead_content !== null}}">{{ messagelist.lead_content }}</view>
+      </view>
+
+    </view>
+
+  </view>
+
+</view>
+
+

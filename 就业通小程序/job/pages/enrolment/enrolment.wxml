@@ -1,0 +1,9 @@
+<view wx:if="{{enrolment.length == 0}}">请到首页招聘会报名</view>
+<view wx:for="{{enrolment}}" wx:key="key" wx:for-item="enrolment" class="enrolment" data-id="{{fw.pid}}">
+  <view class="enrolment_title">{{ enrolment.title }}</view>
+  <image class="enrolment_img" src="{{ enrolment.image }}"></image>
+  <view class="enrolment_box">
+    <view class="enrolment_time">时间：{{ enrolment.addtime }}</view>
+    <view class="enrolment_address">地点：{{ enrolment.address }}</view>
+  </view>
+</view>

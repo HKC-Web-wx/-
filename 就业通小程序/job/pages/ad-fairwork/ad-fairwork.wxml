@@ -1,0 +1,21 @@
+
+<view class="a-box">
+    <view wx:if="{{ad_fw.state == 0}}" wx:for="{{ad_fw}}" wx:key="key" wx:for-item="ad_fw" class="ad-fw" data-id="{{ad_fw.id}}" bindtap="ad_fw">
+      <view class="ad-fw_title">{{ ad_fw.title }}</view>
+      <image class="ad-fw_img" src="{{ ad_fw.image }}"></image>
+      <view class="ad-fw_box">
+        <view class="ad-fw_time">时间：{{ ad_fw.create_time }}</view>
+        <view class="ad-fw_address">地点：{{ ad_fw.address }}</view>
+      </view>
+
+      <view class="btn_box">
+        <view catchtap="edit_ad_fw" data-id="{{ad_fw.id}}" data-title="{{ad_fw.title}}" data-address="{{ad_fw.address}}" data-details="{{ad_fw.details}}" data-image="{{ad_fw.image}}">修改</view>
+        <view catchtap="del_ad_fw" data-id="{{ad_fw.id}}">删除</view>
+      </view>
+    </view>
+</view>
+
+
+<view class="add-box">
+  <button bindtap="add">添加招聘会</button>
+</view>
