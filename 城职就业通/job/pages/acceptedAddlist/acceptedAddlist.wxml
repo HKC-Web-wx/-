@@ -1,0 +1,18 @@
+<scroll-view class="ac-box" scroll-y="true" style="height:{{winHeight -80}}px">
+  <view wx:if="{{acceptedAddlist.length == 0}}" class="warning">请添加您已被录用的相关信息</view>
+  <view wx:for="{{acceptedAddlist}}" wx:key="key" wx:for-item="acceptedAddlist" class="acceptedAddlist">
+    <view class="acceptedAddlist_company">{{ acceptedAddlist.company }}</view>
+    <view class="acceptedAddlist_box">
+      <view class="acceptedAddlist_position">职位：{{ acceptedAddlist.position }}</view>
+      <view class="acceptedAddlist_title" wx:if="{{acceptedAddlist.title == null}}">招聘会：无</view>
+      <view class="acceptedAddlist_title" wx:else>招聘会：{{ acceptedAddlist.title }}</view>
+      <view class="acceptedAddlist_time">时间：{{ acceptedAddlist.luqu_time }}</view>
+    </view>
+    <view class="edit" bindtap="edit_luqu" data-id="{{acceptedAddlist.id}}" data-company="{{acceptedAddlist.company}}" data-position="{{acceptedAddlist.position}}" data-title="{{acceptedAddlist.title}}" data-pid="{{acceptedAddlist.pid}}" data-luqu_time="{{acceptedAddlist.luqu_time}}">修改</view>
+  </view>
+</scroll-view>
+
+
+<view class="add-box">
+  <button bindtap="add">添加已录取信息</button>
+</view>

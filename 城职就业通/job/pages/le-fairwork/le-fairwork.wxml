@@ -1,0 +1,21 @@
+<!--pages/le-fairwork/le-fairwork.wxml-->
+<scroll-view class="l-box" scroll-y="true" style="height:{{winHeight -80}}px">
+    <view wx:if="{{le_fw.state == 0}}" wx:for="{{le_fw}}" wx:key="key" wx:for-item="le_fw" class="le-fw" data-id="{{le_fw.id}}" bindtap="le_fw">
+      <view class="le-fw_title">{{ le_fw.title }}</view>
+      <image class="le-fw_img" src="{{ le_fw.image }}"></image>
+      <view class="le-fw_box">
+        <view class="le-fw_time">时间：{{ le_fw.create_time }}</view>
+        <view class="le-fw_address">地点：{{ le_fw.address }}</view>
+      </view>
+
+      <view class="btn_box">
+        <view catchtap="edit_le_fw" data-id="{{le_fw.id}}" data-title="{{le_fw.title}}" data-address="{{le_fw.address}}" data-details="{{le_fw.details}}" data-image="{{le_fw.image}}">修改</view>
+        <view catchtap="del_le_fw" data-id="{{le_fw.id}}">删除</view>
+      </view>
+    </view>
+</scroll-view>
+
+
+<view class="add-box">
+  <button bindtap="add">添加招聘会</button>
+</view>

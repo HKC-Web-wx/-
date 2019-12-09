@@ -1,0 +1,27 @@
+<!--pages/stulist/stulist.wxml-->
+<scroll-view class="st-box" scroll-y="true" style="height:{{winHeight -80}}px">
+  <view wx:if="{{stulist.length == 0}}" class="warning">该班级暂未有学生</view>
+  <view wx:for="{{stulist}}" wx:key="key" wx:for-item="stulist" data-id="{{stulist.id}}" class="stulist">
+    <view class="stulist_boxone">
+      <view class="stu_name">{{ stulist.stu_name }}</view>
+      <view class="stu_sex">{{ stulist.stu_sex }}</view>
+    </view>
+    
+    <view class="stulist_boxtwo">
+      <view class="stu_id">学号：{{ stulist.stu_code }}</view>
+      <view class="stu_phone">手机号码：{{stulist.stu_phone}}</view>
+      <view class="stu_time">更新时间：{{stulist.create_time}}</view>
+    </view>
+
+    <view class="btn_box">
+      <view bindtap="edit_stu" data-id="{{stulist.id}}" data-name="{{stulist.stu_name}}" data-sex="{{stulist.stu_sex}}" data-code="{{stulist.stu_code}}" data-phone="{{stulist.stu_phone}}">修改</view>
+      <view bindtap="del_stu" data-id="{{stulist.id}}">删除</view>
+    </view>
+  </view>
+</scroll-view>
+
+
+<view class="add-box">
+  <button bindtap="add">添加学生</button>
+</view>
+

@@ -1,9 +1,0 @@
-<view class="c-box">
-    <view wx:for="{{enroll_classlist}}" wx:key="key" wx:for-item="classlist" class="classlist" data-id="{{classlist.class_id}}" bindtap="enroll_stulist">
-      <view class="classlist_classname" data-text="{{classlist.classname}}">{{ classlist.classname }}</view>
-      <view class="classlist_box">
-        <view class="classlist_time">更新时间：{{ classlist.create_time }}</view>
-      </view>
-      <view class="count">已报名 {{classlist.count}} 人</view>
-    </view>
-</view>

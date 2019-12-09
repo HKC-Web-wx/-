@@ -1,0 +1,54 @@
+<!--pages/ad&le-tong-data/ad&le-tong-data.wxml-->
+<view>
+<view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">已报名</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已面试</view>  
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">已录取</view>  
+</view>  
+  
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight -35}}px" bindchange="bindChange">  
+    <!-- 已报名 -->  
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scroll-box" style="height:{{winHeight -50}}px">
+        <view wx:if="{{fw.state == 0}}" wx:for="{{fairList}}" wx:key="key" wx:for-item="fw" class="fw" data-id="{{fw.id}}" bindtap="enroll_classlist">
+          <view class="fw_title">{{ fw.title }}</view>
+          <image class="fw_img" src="{{ fw.image }}"></image>
+          <view class="fw_box">
+            <view class="fw_time">时间：{{ fw.create_time }}</view>
+            <view class="fw_address">地点：{{ fw.address }}{{countList[index].count}}</view>
+          </view>
+          <view class="count" wx:if="{{fw.count == null}}">已报名：0人</view>
+          <view class="count" wx:else>已报名：{{fw.count}}人</view>
+        </view>  
+      </scroll-view>
+    </swiper-item>  
+
+    <!-- 已面试 -->  
+    <swiper-item> 
+      <scroll-view scroll-y="true" class="scroll-box" style="height:{{winHeight -50}}px">
+          <view wx:if="{{classlist.state == 0}}" wx:for="{{classlist}}" wx:key="key" wx:for-item="classlist" class="classlist" data-id="{{classlist.id}}" bindtap="interviewed_stulist">
+            <view class="classlist_classname" data-text="{{classlist.classname}}">{{ classlist.classname }}</view>
+            <view class="teach_name" wx:if="{{classlist.teach_state == 0}}">辅导员：{{classlist.teach_name}}</view>
+            <view class="teach_name" wx:elif="{{classlist.teach_state == 1}}">辅导员：未指定</view>
+            <view class="headmaster_name" wx:if="{{classlist.headmaster_state == 0}}">班主任：{{classlist.headmaster_name}}</view>
+            <view class="headmaster_name" wx:elif="{{classlist.headmaster_state == 1}}">班主任：未指定</view>
+            <view class="classlist_text">详情</view>
+          </view>
+      </scroll-view>
+    </swiper-item>  
+
+    <!-- 已录取 -->  
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scroll-box" style="height:{{winHeight -50}}px">
+          <view wx:if="{{classlist.state == 0}}" wx:for="{{classlist}}" wx:key="key" wx:for-item="classlist" class="classlist" data-id="{{classlist.id}}" bindtap="accepted_stulist">
+            <view class="classlist_classname" data-text="{{classlist.classname}}">{{ classlist.classname }}</view>
+            <view class="teach_name" wx:if="{{classlist.teach_state == 0}}">辅导员：{{classlist.teach_name}}</view>
+            <view class="teach_name" wx:elif="{{classlist.teach_state == 1}}">辅导员：未指定</view>
+            <view class="headmaster_name" wx:if="{{classlist.headmaster_state == 0}}">班主任：{{classlist.headmaster_name}}</view>
+            <view class="headmaster_name" wx:elif="{{classlist.headmaster_state == 1}}">班主任：未指定</view>
+            <view class="classlist_text">详情</view>
+          </view> 
+      </scroll-view>
+    </swiper-item>  
+</swiper>
+</view>

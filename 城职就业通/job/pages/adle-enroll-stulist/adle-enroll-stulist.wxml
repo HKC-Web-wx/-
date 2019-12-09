@@ -1,0 +1,16 @@
+<view class="st-box">
+  <view wx:for="{{stulist}}" wx:key="key" wx:for-item="stulist" data-id="{{stulist.id}}" class="stulist">
+    <view class="stulist_boxone">
+      <view class="stu_name">{{ stulist.stu_name }}</view>
+      <view class="stu_sex">{{ stulist.stu_sex }}</view>
+    </view>
+    
+    <view class="stulist_boxtwo">
+      <view class="stu_id">学号：{{ stulist.stu_code }}</view>
+      <view class="stu_phone">手机号码：{{stulist.stu_phone}}</view>
+      <view class="stu_time">报名时间：{{stulist.addtime}}</view>
+    </view>
+
+    <view class="count">已报名</view>
+  </view>
+</view>

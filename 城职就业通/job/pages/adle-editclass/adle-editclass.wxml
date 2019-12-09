@@ -1,0 +1,33 @@
+<!--pages/ad&le-editclass/ad&le-editclass.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="subox">
+
+    <view>班级</view>
+    <input type="text" name="classname" maxlength="11" placeholder="请输入班级名称" value="{{classname}}"></input>
+
+    <view>辅导员</view>
+    <view class="select-box">
+      <picker mode="selector" range="{{inValue}}" range-key="teach_name" bindchange="inBindchange" name="teach_name">
+        <view wx:if="{{classboolen == false && teach_state == 1}}">未指定</view>
+        <view wx:elif="{{classboolen == false && teach_state == 0}}">{{teach_name}}</view>
+        <view wx:elif="{{classboolen == true}}">{{inValue[index].teach_name}}</view>
+      </picker>
+    </view>
+
+    <view>班主任</view>
+    <view class="select-box">
+      <picker mode="selector" range="{{inValue}}" range-key="teach_name" bindchange="inBindchange_h" name="headmaster_name">
+        <view wx:if="{{h_classboolen == false && headmaster_state == 1}}">未指定</view>
+        <view wx:elif="{{h_classboolen == false && headmaster_state == 0}}">{{headmaster_name}}</view>
+        <view wx:elif="{{h_classboolen == true}}">{{inValue[index_h].teach_name}}</view>
+      </picker>
+    </view>
+    
+
+  </view>
+
+  <view class="btn-box">
+    <button formType="submit">确定</button>
+  </view>
+</form>
+

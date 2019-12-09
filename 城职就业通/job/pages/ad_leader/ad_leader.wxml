@@ -1,0 +1,27 @@
+<!--pages/ad_leader/ad_leader.wxml-->
+<scroll-view class="adle-box" scroll-y="true" style="height:{{winHeight -80}}px">
+  <view wx:for="{{leader_list}}" wx:key="key" wx:for-item="leader_list" data-id="{{leader_list.id}}" class="teach_list">
+    <view class="teach_list_boxone">
+      <view class="teach_name">{{ leader_list.lead_name }}</view>
+      <view class="teach_sex">{{ leader_list.lead_sex }}</view>
+    </view>
+    
+    <view class="teach_list_boxtwo">
+      <view class="teach_code">教工号：{{ leader_list.lead_code }}</view>
+      <view class="create_time">更新时间：{{leader_list.create_time}}</view>
+    </view>
+
+    <view class="btn_box">
+      <view bindtap="edit_leader" data-id="{{leader_list.id}}" data-name="{{leader_list.lead_name}}" data-sex="{{leader_list.lead_sex}}" data-code="{{leader_list.lead_code}}">修改</view>
+      <view bindtap="del_leader" data-id="{{leader_list.id}}">删除</view>
+    </view>
+  </view>
+</scroll-view>
+
+
+<view class="add-box">
+  <button bindtap="add">添加分管员</button>
+</view>
+
+
+

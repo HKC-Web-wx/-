@@ -1,0 +1,49 @@
+page{
+  background-color: #f4f4f4;
+}
+.f-box{
+  margin-bottom: 150rpx;
+}
+.warning{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+.fw{
+  width: 95%;
+  height: 240rpx;
+  border: 1rpx solid #fff;
+  background-color: #fff;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+  box-shadow: 2rpx 5rpx 5rpx #ccc;
+  position: relative;
+}
+.fw_img{
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #07c160;
+  float: left;
+  margin: 15rpx;
+}
+.fw_title{
+  color: #666;
+  font-size: 36rpx;
+  margin: 20rpx;
+}
+.fw_box{
+  margin: 15rpx 15rpx;
+  display: inline-block;
+  line-height: 50rpx;
+}
+.fw_time{
+  font-size: 32rpx;
+  color: #ccc;
+}
+.fw_address{
+  font-size: 32rpx;
+  color: #ccc;
+}
