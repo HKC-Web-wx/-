@@ -1,0 +1,33 @@
+<view class="stu_box">
+  <view class="stu_news" wx:for="{{stu_news}}" wx:key="key">
+    <view class="title">个人信息</view>
+    <view class="stu_name">姓名：{{item.stu_name}}</view>
+    <view class="stu_sex">性别：{{item.stu_sex}}</view>
+    <view class="stu_code">学号：{{item.stu_code}}</view>
+    <view class="stu_phone">手机号码：{{item.stu_phone}}</view>
+    <view class="stu_classname">所属班级：{{item.classname}}</view>
+    <image src="{{userInfo.avatarUrl}}" class="head-img"></image>
+  </view>
+
+  <view class="stu_password" wx:key="key">
+    <view class="title">修改密码</view>
+    <form bindsubmit="formSubmit" wx:if="{{code_boolen == false}}">
+      <view class="input-box">
+        <view class="yuan">原密码：</view>
+        <input class="input-pass" maxlength="12" placeholder="请输入原密码" name="oldPassword"></input>
+      </view>
+      <view class="btn-box">
+        <button formType="submit">确定</button>
+      </view>
+    </form>
+    <form bindsubmit="formSubmit" wx:elif="{{code_boolen == true}}">
+      <view class="input-box">
+        <view class="yuan">新密码：</view>
+        <input class="input-pass" maxlength="12" placeholder="请设置新密码" name="newPassword"></input>
+      </view>
+      <view class="btn-box">
+        <button formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+</view>

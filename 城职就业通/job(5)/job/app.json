@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/student/student",
+    "pages/teacher/teacher",
+    "pages/leader/leader",
+    "pages/admin/admin",
+  
+    "pages/stu_person/stu_person",
+    "pages/fairwork/fairwork",
+    "pages/filelist/filelist",
+    "pages/messages/messages",
+    "pages/resume/resume",
+    "pages/enrolment/enrolment",
+    "pages/interviewed/interviewed",
+    "pages/interviewAddList/interviewAddList",
+    "pages/editInterview/editInterview",
+    "pages/accepted/accepted",
+    "pages/acceptedAddlist/acceptedAddlist",
+    "pages/editAccepted/editAccepted",
+
+    "pages/th_person/th_person",
+    "pages/classlist/classlist",
+    "pages/addclass/addclass",
+    "pages/editclass/editclass",
+    "pages/stulist/stulist",
+    "pages/addstudent/addstudent",
+    "pages/editstudent/editstudent",
+
+    "pages/tong-data/tong-data",
+    "pages/enroll-classlist/enroll-classlist",
+    "pages/enroll-stulist/enroll-stulist",
+    "pages/interviewed-stulist/interviewed-stulist",
+    "pages/accepted-stulist/accepted-stulist",
+    
+    "pages/le_person/le_person",
+    "pages/le-fairwork/le-fairwork",
+    "pages/le_filelist/le_filelist",
+    "pages/le_messages/le_messages",
+    "pages/edit_le_fw/edit_le_fw",
+    "pages/add_le_filelist/add_le_filelist",
+    "pages/ad_leader/ad_leader",
+    "pages/ad-editleader/ad-editleader",
+    "pages/ad-addleader/ad-addleader",
+    "pages/ad-fairwork/ad-fairwork",
+    "pages/ad_filelist/ad_filelist",
+    "pages/edit_ad_fw/edit_ad_fw",
+    "pages/add_ad_filelist/add_ad_filelist",
+
+    "pages/adle-teacher/adle-teacher",
+    "pages/adle-editteacher/adle-editteacher",
+    "pages/adle-addteacher/adle-addteacher",
+    "pages/adle-classlist/adle-classlist",
+    "pages/adle-editclass/adle-editclass",
+    "pages/adle-addclass/adle-addclass",
+    "pages/adle-stulist/adle-stulist",
+    "pages/adle-editstudent/adle-editstudent",
+    "pages/adle-addstudent/adle-addstudent",
+
+    "pages/adle-tong-data/adle-tong-data",
+    "pages/adle-enroll-classlist/adle-enroll-classlist",
+    "pages/adle-enroll-stulist/adle-enroll-stulist",
+    "pages/adle-interviewed-stulist/adle-interviewed-stulist",
+    "pages/adle-accepted-stulist/adle-accepted-stulist"
+    
+  ],
+  "networkTimeout": {
+    "request": 15000
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#07c160",
+    "navigationBarTitleText": "就业通",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

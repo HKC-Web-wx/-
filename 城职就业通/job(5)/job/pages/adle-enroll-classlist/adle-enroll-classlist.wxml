@@ -1,0 +1,17 @@
+<view class="c-box">
+    <view wx:if="{{enroll_classlist.length == 0}}" class="warning">该招聘会暂未有学生报名</view>
+    <scroll-view class="echarts-box" style="width:{{winWidth}}px;height:{{winHeight * 0.41}}px;" scroll-x="true" >
+      <view class="box" style="width:{{enroll_classlist.length == 0 ? winWidth :  enroll_classlist.length * 80}}px;height:{{winHeight * 0.4}}px">
+        <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" ></ec-canvas>
+      </view>
+    </scroll-view>
+    <view wx:for="{{enroll_classlist}}" wx:key="key" wx:for-item="classlist" class="classlist" data-id="{{classlist.class_id}}" bindtap="enroll_stulist">
+      <view class="classlist_classname" data-text="{{classlist.classname}}">{{ classlist.classname }}</view>
+      <view class="teach_name">辅导员：{{classlist.teach_name}}</view>
+      <view class="headmaster_name">班主任：{{classlist.headmaster_name}}</view>
+      <view class="classlist_box">
+        <view class="classlist_time">更新时间：{{ classlist.create_time }}</view>
+      </view>
+      <view class="count">已报名 {{classlist.count}} 人</view>
+    </view>
+</view>

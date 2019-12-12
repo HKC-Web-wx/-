@@ -1,0 +1,31 @@
+<view class="lead_box">
+  <view class="lead_news" wx:for="{{lead_news}}" wx:key="key">
+    <view class="title">个人信息</view>
+    <view class="lead_name">姓名：{{item.lead_name}}</view>
+    <view class="lead_sex">性别：{{item.lead_sex}}</view>
+    <view class="lead_code">教工号：{{item.lead_code}}</view>
+    <image src="{{userInfo.avatarUrl}}" class="head-img"></image>
+  </view>
+
+  <view class="lead_password" wx:key="key">
+    <view class="title">修改密码</view>
+    <form bindsubmit="formSubmit" wx:if="{{code_boolen == false}}">
+      <view class="input-box">
+        <view class="yuan">原密码：</view>
+        <input class="input-pass" maxlength="12" placeholder="请输入原密码" name="oldPassword"></input>
+      </view>
+      <view class="btn-box">
+        <button formType="submit">确定</button>
+      </view>
+    </form>
+    <form bindsubmit="formSubmit" wx:elif="{{code_boolen == true}}">
+      <view class="input-box">
+        <view class="yuan">新密码：</view>
+        <input class="input-pass" maxlength="12" placeholder="请设置新密码" name="newPassword"></input>
+      </view>
+      <view class="btn-box">
+        <button formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+</view>
