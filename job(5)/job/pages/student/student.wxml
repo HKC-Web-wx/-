@@ -1,0 +1,44 @@
+<view class="title-box">
+  <view class="title">
+    <image class="title-bg" src="/image/title-bg.jpg"></image>
+    <view class="main">
+      <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
+      <text class="user-name">{{userInfo.nickName}}</text>
+    </view>
+    <view class="switch-id" catchtap="switch_id">切换身份</view>
+  </view>
+</view>
+
+<!-- 通知 -->
+<view class="no-block">
+  <view class="no-nav">就业管理</view>
+  <view class="box">
+    <view class="notice-box">
+      <view class="notice" catchtap='p_click'>
+        <icon class="icon icon-gerenzhongxin-xuanzhong"></icon>
+        <text class="notice-tit">个人信息</text>
+      </view>
+      <view class="notice" catchtap='f_click'>
+        <icon class="icon icon-gongsiguanli"></icon>
+        <text class="notice-tit">招聘会</text>
+      </view>
+      <view class="notice" catchtap='r_click'>
+        <icon class="icon icon-ai-resume"></icon>
+        <text class="notice-tit">附上简历</text>
+      </view>
+      <view class="notice" catchtap='e_click'>
+        <icon class="icon icon-geixueshengbaoming"></icon>
+        <text class="notice-tit">我的报名</text>
+      </view>
+      <view class="notice" catchtap='i_click'>
+        <icon class="icon icon---copy"></icon>
+        <text class="notice-tit">求职面试</text>
+      </view>
+      <view class="notice" catchtap='a_click'>
+        <icon class="icon icon-luqu"></icon>
+        <text class="notice-tit">求职录用</text>
+      </view>
+    </view>
+  </view>
+  
+</view>

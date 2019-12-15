@@ -1,0 +1,47 @@
+<!--pages/leader/leader.wxml-->
+<view class="title-box">
+  <view class="title">
+    <image class="title-bg" src="/image/title-bg.jpg"></image>
+    <view class="main">
+      <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
+      <text class="user-name">{{userInfo.nickName}}</text>
+    </view>
+    <view class="switch-id" catchtap="switch_id">切换身份</view>
+  </view>
+</view>
+
+<!-- 通知 -->
+<view class="no-block">
+  <view class="no-nav">管理所有</view>
+  <view class="box">
+    <view class="notice-box">
+      <view class="notice" catchtap='p_click'>
+        <icon class="icon icon-gerenzhongxin-xuanzhong"></icon>
+        <text class="notice-tit">个人信息</text>
+      </view>
+      <view class="notice" catchtap='f_click'>
+        <icon class="icon icon-gongsiguanli"></icon>
+        <text class="notice-tit">管理招聘会</text>
+      </view>
+      <view class="notice" catchtap='d_click'>
+        <icon class="icon icon-tongjishuju"></icon>
+        <text class="notice-tit">统计数据</text>
+      </view>
+      <view class="notice" catchtap='t_click'>
+        <icon class="icon icon-jiaoshiguanli"></icon>
+        <text class="notice-tit">管理教师</text>
+      </view>
+      <view class="notice" catchtap='c_click'>
+        <icon class="icon icon-banji"></icon>
+        <text class="notice-tit">管理班级</text>
+      </view>
+      <view class="notice" catchtap='s_click'>
+        <icon class="icon icon-student-copy"></icon>
+        <text class="notice-tit">管理学生</text>
+      </view>
+      
+    </view>
+  </view>
+  
+</view>
+
