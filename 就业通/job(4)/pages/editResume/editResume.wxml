@@ -1,0 +1,55 @@
+<!--pages/editResume/editResume.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="subox">
+
+    <view>姓名</view>
+    <input type="text" name="stu_name" maxlength="5" value="{{name}}" disabled="true" class="disable"></input>
+
+    <view>性别</view>
+    <radio-group class="radio-group disable" bindchange="radioChange" name="stu_sex">
+      <radio class="radio" value="男" checked="{{sex == '男' ? true : false}}" disabled="true">男</radio>
+      <radio class="radio" value="女" checked="{{sex == '女' ? true : false}}" disabled="true">女</radio>
+    </radio-group>
+
+    <view>身高:cm</view>
+    <input type="number" name="stu_height" maxlength="3" placeholder="请输入身高" value="{{stu_height == 'null' ? '' : stu_height}}"></input>
+
+    <view>体重:kg</view>
+    <input type="number" name="stu_weight" maxlength="3" placeholder="请输入体重" value="{{stu_weight  == 'null'? '':stu_weight}}"></input>
+
+    <view>出生年月</view>
+    <view>
+      <picker mode="date" start="1950-01-01" end="2025-12-12" bindchange="datePickerBindchange" name="birthday">
+        <view>{{dateValue == 'null'? '':dateValue}}</view>
+      </picker>
+    </view>
+
+    <view>学号</view>
+    <input type="number" name="stu_code" maxlength="12" value="{{code}}" disabled="true" class="disable"></input>
+
+    <view>手机号</view>
+    <input type="number" name="stu_phone" maxlength="11" value="{{phone}}" disabled="true" class="disable"></input>
+
+    <view>政治面貌</view>
+    <input type="text" name="politics" maxlength="10" placeholder="请输入政治面貌" value="{{politics == 'null'? '':politics}}"></input>
+
+    <view>毕业院校</view>
+    <input type="text" name="stu_school" maxlength="15" placeholder="请输入毕业院校" value="{{stu_school == 'null'? '':stu_school}}"></input>
+
+    <view>邮箱</view>
+    <input type="text" name="stu_email" maxlength="50" placeholder="请输入邮箱" value="{{stu_email == 'null'? '':stu_email}}"></input>
+
+    <view>爱好</view>
+    <input type="text" name="stu_hobby" maxlength="-1" placeholder="请输入爱好" value="{{stu_hobby == 'null'? '':stu_hobby}}"></input>
+
+    <view>自我评价</view>
+    <textarea placeholder="请输入自我评价" maxlength="-1" name="stu_self" value="{{stu_self == 'null'? '':stu_self}}" class="msgtext"></textarea>
+
+  </view>
+
+  <view class="btn-box">
+    <button formType="submit">保存</button>
+  </view>
+</form>
+
+

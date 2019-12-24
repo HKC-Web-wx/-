@@ -1,0 +1,62 @@
+/* pages/ad&le-interviewed-stulist/ad&le-interviewed-stulist.wxss */
+page{
+  height: 100%;
+  background-color: #f4f4f4;
+}
+.warning{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+.st-box{
+  margin-bottom: 130rpx;
+  position: relative;
+}
+.stulist{
+  width: 95%;
+  height: 210rpx;
+  border: 1rpx solid #fff;
+  background-color: #fff;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+  box-shadow: 2rpx 5rpx 5rpx #ccc;
+  position: relative;
+}
+.stulist_boxone{
+  width: 100%;
+  display: flex;
+  margin: 20rpx;
+}
+.stulist_boxtwo{
+  display: inline-block;
+  line-height: 45rpx;
+  position: absolute;
+  bottom: 10rpx;
+  left: 20rpx;
+  
+}
+.stu_time,.stu_company,.stu_position,.stu_id{
+  font-size: 30rpx;
+  color: #ccc;
+}
+.stu_id{
+  font-size: 30rpx;
+  color: #ccc;
+  line-height: 50rpx;
+}
+.stu_name{
+  color: #555;
+  font-size: 36rpx;
+  font-weight: 700;
+  margin-right: 25rpx;
+}
+.count{
+  position: absolute;
+  top: 10rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+  color: #aaa;
+}
