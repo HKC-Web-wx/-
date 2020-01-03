@@ -1,0 +1,31 @@
+<!--pages/en_person/en_person.wxml-->
+<view class="enterprise_box">
+  <view class="enterprise_news" wx:for="{{enterprise_news}}" wx:key="key">
+    <view class="title">账号信息</view>
+    <view class="enterprise_name">企业名称：{{item.enterprise_name}}</view>
+    <view class="enterprise_code">账号：{{item.enterprise_code}}</view>
+    <view class="expiration_date">账号过期时间：{{item.expiration_date}}</view>
+  </view>
+
+  <view class="enterprise_password" wx:key="key">
+    <view class="title">修改密码</view>
+    <form bindsubmit="formSubmit" wx:if="{{code_boolen == false}}">
+      <view class="input-box">
+        <view class="yuan">原密码：</view>
+        <input class="input-pass" maxlength="12" placeholder="请输入原密码" name="oldPassword"></input>
+      </view>
+      <view class="btn-box">
+        <button formType="submit">确定</button>
+      </view>
+    </form>
+    <form bindsubmit="formSubmit" wx:elif="{{code_boolen == true}}">
+      <view class="input-box">
+        <view class="yuan">新密码：</view>
+        <input class="input-pass" maxlength="12" placeholder="请设置新密码" name="newPassword"></input>
+      </view>
+      <view class="btn-box">
+        <button formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+</view>

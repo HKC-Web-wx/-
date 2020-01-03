@@ -1,0 +1,29 @@
+<form bindsubmit="formSubmit">
+  <view class="subox">
+
+    <view>录用公司</view>
+    <input type="text" name="company" maxlength="15" placeholder="请输入您录用的公司"></input>
+
+    <view>录用职位</view>
+    <input type="text" name="position" maxlength="10" placeholder="请输入您录用的职位"></input>
+
+    <view>招聘会</view>
+    <view>
+      <picker mode="selector" range="{{acValue}}" range-key="title" bindchange="acBindchange" name="title">
+        <view>{{acValue[index].title}}</view>
+      </picker>
+    </view>
+
+    <view>录用时间</view>
+    <view>
+      <picker mode="date" start="1999-01-01" end="2999-12-12" bindchange="datePickerBindchange" name="time">
+      <view>{{dateValue}}</view>
+      </picker>
+    </view>
+
+  </view>
+
+  <view class="btn-box">
+    <button formType="submit">提交</button>
+  </view>
+</form>

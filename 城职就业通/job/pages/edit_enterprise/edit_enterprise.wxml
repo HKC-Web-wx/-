@@ -1,0 +1,29 @@
+<!--pages/edit_enterprise/edit_enterprise.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="subox">
+
+    <view>企业名称</view>
+    <input type="text" name="enterprise_name" maxlength="20" placeholder="请输入企业名称" value="{{enterprise_name}}"></input>
+
+    <view>企业账号</view>
+    <input type="number" name="enterprise_code" maxlength="10" placeholder="请输入企业账号" value="{{enterprise_code}}"></input>
+
+    <!-- <view>企业密码</view>
+    <input type="password" name="enterprise_password" maxlength="20" placeholder="请输入企业密码" value="{{enterprise_password}}"></input> -->
+
+    <view>账号过期时间</view>
+    <view>
+      <picker mode="date" start="1999-01-01" end="2999-12-12" bindchange="datePickerBindchange" name="expiration_date">
+      <view wx:if="{{priseboolen == false}}">{{expiration_date}}</view>
+      <view wx:if="{{priseboolen == true}}">{{dateValue}}</view> 
+      </picker>
+    </view>
+
+  </view>
+
+  <view class="btn-box">
+    <button formType="submit">确定</button>
+  </view>
+</form>
+
+

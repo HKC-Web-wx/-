@@ -1,0 +1,4 @@
+<view class="box">
+  <view class="stu-name">姓名：<text>{{stu_name}}</text></view>
+  <view class="stu-self">自我评价： <text>{{stu_self}}</text></view>
+</view>

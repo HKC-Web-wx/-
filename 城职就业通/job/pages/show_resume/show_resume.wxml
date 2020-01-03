@@ -1,0 +1,44 @@
+<!-- 搜索框 -->
+<!-- <view class="search-box">
+  <form bindsubmit="formSubmit">
+    <view class="find_class">
+      <input type="text" name="search_value" maxlength="15" placeholder="输入专业名称"></input>
+      <button formType="submit">搜索</button>
+    </view>
+  </form>
+</view> -->
+
+<view class='top'>
+  <view class='top-text'>筛选查看</view>
+  <!-- 下拉框 -->
+  <view class='top-selected' bindtap='bindShowMsg'>
+    <text>{{grade_name}}</text>
+    <text class="icon icon-arrow-down"></text>
+  </view>
+  <!-- 下拉需要显示的列表 -->
+  <scroll-view class="select_box" wx:if="{{select}}" scroll-y="true">
+    <view wx:for="{{classlist}}" wx:key="unique" class="classlist">
+      <view class="select_one" bindtap="mySelect" data-id="{{item.id}}" data-name="{{item.classname}}">{{item.classname}}</view>
+    </view>
+  </scroll-view>
+</view>
+
+<scroll-view class="st-box" scroll-y="true" style="height:{{winHeight -50}}px">
+  <view class="e-box">
+      <view class="warning" wx:if="{{studentlist.length == 0}}">该班级暂无学生简历信息</view>
+      <view wx:for="{{studentlist}}" wx:key="key" wx:for-item="studentlist" class="studentlist" data-id="{{studentlist.id}}">
+        <view class="studentlist_stu_name">{{ studentlist.stu_name }}</view>
+        <view class="studentlist_box">
+          <view class="studentlist_info"> {{studentlist.stu_sex}}　|　爱好：{{studentlist.stu_hobby}}</view>
+          <view class="studentlist_stu_school">毕业院校：{{ studentlist.stu_school }}</view>
+          <view class="studentlist_classname">专业班级：{{ studentlist.classname }}</view>
+          <view class="studentlist_politics">政治面貌：{{ studentlist.politics }}</view>
+          <view class="studentlist_stu_email">邮箱：{{ studentlist.stu_email }}</view>
+        </view>
+        <view class="btn_box">
+          <view bindtap="show_resume" data-filepath="{{studentlist.filepath}}" class="{{studentlist.filepath ?'havefile' : 'notflie'}}">查看简历</view>
+        </view>
+        <view class="look-self-info" bindtap="look_self_info" data-stu_self="{{studentlist.stu_self}}" data-stu_name="{{studentlist.stu_name}}">自我评价</view>
+      </view>
+  </view>
+</scroll-view>

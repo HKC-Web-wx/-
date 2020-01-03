@@ -1,0 +1,21 @@
+.box{
+  width: 80%;
+  border: 1px solid #aaa;
+  margin: 30px auto;
+  padding: 10rpx 20rpx;
+  border-radius: 15rpx;
+}
+.stu-name{
+  margin: 15rpx 0;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+.stu-self{
+  margin: 15rpx 0;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+.stu-self text{
+  font-weight:400;
+  font-size: 28rpx;
+}

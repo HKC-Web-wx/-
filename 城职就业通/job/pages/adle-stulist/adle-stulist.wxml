@@ -1,0 +1,44 @@
+<view class='top'>
+  <view class='top-text'>按班级查看</view>
+  <!-- 下拉框 -->
+  <view class='top-selected' bindtap='bindShowMsg'>
+    <text>{{grade_name}}</text>
+    <text class="icon icon-arrow-down"></text>
+  </view>
+  <!-- 下拉需要显示的列表 -->
+  <scroll-view class="select_box" wx:if="{{select}}" scroll-y="true">
+    <view wx:for="{{classlist}}" wx:key="unique" class="classlist">
+      <view class="select_one" bindtap="mySelect" data-id="{{item.id}}" data-name="{{item.classname}}">{{item.classname}}</view>
+    </view>
+  </scroll-view>
+</view>
+
+
+<scroll-view class="adle-box" scroll-y="true" style="height:{{winHeight -105}}px">
+  <view class="warning" wx:if="{{stulist.length == 0}}">该班级暂无学生</view>
+  <view wx:for="{{stulist}}" wx:key="key" wx:for-item="stulist" data-id="{{stulist.id}}" class="stulist">
+    <view bindtap="reset_password" data-id="{{stulist.id}}" class="reset_password">重置密码</view>
+    <view class="stulist_boxone">
+      <view class="stu_name">{{ stulist.stu_name }}</view>
+      <view class="stu_sex">{{ stulist.stu_sex }}</view>
+    </view>
+    
+    <view class="stulist_boxtwo">
+      <view class="stu_id">学号：{{ stulist.stu_code }}</view>
+      <view class="stu_classname">班级：{{stulist.classname}}</view>
+      <view class="stu_phone">手机：{{stulist.stu_phone}}</view>
+      <view class="stu_time">更新时间：{{stulist.create_time}}</view>
+    </view>
+
+    <view class="btn_box">
+      <view bindtap="edit_stu" data-id="{{stulist.id}}" data-name="{{stulist.stu_name}}" data-sex="{{stulist.stu_sex}}" data-code="{{stulist.stu_code}}" data-classname="{{stulist.classname}}" data-phone="{{stulist.stu_phone}}" data-class_id="{{stulist.class_id}}">修改</view>
+      <view bindtap="del_stu" data-id="{{stulist.id}}">删除</view>
+    </view>
+  </view>
+</scroll-view>
+
+
+<view class="add-box">
+  <button bindtap="add">添加学生</button>
+</view>
+

@@ -1,0 +1,77 @@
+page{
+  height: 100%;
+  background-color: #f4f4f4;
+}
+.warning{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+.add-box{
+  width: 100%;
+  height: 125rpx;
+  background-color: #f4f4f4;
+  position: fixed;
+  bottom: 0;
+}
+.add-box button{
+  width: 90%;
+  background-color: #07c160;
+  color: #FFF;
+  margin: 16rpx auto;
+  border-radius: 10rpx;
+}
+.add-box button:hover{
+  opacity: 0.7;
+}
+.ac-box{
+  margin-bottom: 170rpx;
+}
+.acceptedAddlist{
+  background-color: #fff;
+  margin: 20rpx;
+  border-radius: 20rpx;
+  box-shadow: 2rpx 5rpx 5rpx #ccc;
+  position: relative;
+}
+.acceptedAddlist_time{
+  font-size: 32rpx;
+  color: #ccc;
+}
+.acceptedAddlist_title{
+  font-size: 32rpx;
+  color: #ccc;
+}
+.acceptedAddlist_position{
+  font-size: 32rpx;
+  color: #ccc;
+}
+.acceptedAddlist_company{
+  color: black;
+  font-size: 36rpx;
+  font-weight: 700;
+  position: relative;
+  top: 10rpx;
+  left: 10rpx;
+}
+.acceptedAddlist_box{
+  margin: 15rpx 15rpx;
+  display: inline-block;
+  line-height: 50rpx;
+}
+.edit{
+  position: absolute;
+  top: 15rpx;
+  right: 20rpx;
+  width: 120rpx;
+  height: 45rpx;
+  text-align: center;
+  line-height: 45rpx;
+  background-color: #07c160;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+}

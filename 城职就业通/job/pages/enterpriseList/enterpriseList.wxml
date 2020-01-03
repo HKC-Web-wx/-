@@ -1,0 +1,28 @@
+<!--pages/enterpriseList/enterpriseList.wxml-->
+<scroll-view class="st-box" scroll-y="true" style="height:{{winHeight -80}}px">
+  <view class="e-box">
+      <view wx:for="{{enterpriselist}}" wx:key="key" wx:for-item="enterpriselist" class="enterpriselist" data-id="{{enterpriselist.id}}">
+
+        <view class="enterprise_code">{{ enterpriselist.enterprise_code }}</view>
+        <view class="enterprise_name">{{ enterpriselist.enterprise_name }}</view>
+        <view class="expiration_box">
+          <view class="expiration_date">账号过期时间：{{ enterpriselist.expiration_date }}</view>
+        </view>
+
+        <view class="btn_box">
+          <view bindtap="reset_password" data-id="{{enterpriselist.id}}">重置密码</view>
+          <view bindtap="edit_stu" data-id="{{enterpriselist.id}}" data-name="{{enterpriselist.enterprise_name}}" data-code="{{enterpriselist.enterprise_code}}" data-time="{{enterpriselist.expiration_date}}">修改</view>
+          <view bindtap="del_stu" data-id="{{enterpriselist.id}}">删除</view>
+        </view>
+
+      </view>
+  </view>
+</scroll-view>
+
+
+
+<view class="add-box">
+  <button bindtap="add">添加企业</button>
+</view>
+
+
