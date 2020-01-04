@@ -128,14 +128,12 @@ Page({
         stu_id: that.data.stu_id
       },
       success:function(res){
+        wx.hideLoading();
         if(res.data){
-          wx.hideLoading();
-          // console.log(res.data);
           that.setData({
             resumeInfo:res.data,
           })
         }else{
-          wx.hideLoading();
           wx.showToast({
             title: '网络错误请稍后再试',
             icon:"none",
@@ -143,6 +141,15 @@ Page({
             mask:true
           })
         }
+      },
+      fail:function(err){
+        wx.hideLoading();
+        wx.showToast({
+          title: '网络错误请稍后再试',
+          icon: "none",
+          duration: 1500,
+          mask: true
+        })
       }
     })
   },
@@ -152,17 +159,6 @@ Page({
   onShow: function () {
     this.loadResume();
     var that = this;
-    // wx.getSavedFileList({
-    //   success(res) {
-    //     that.setData({
-    //       storeFile: res.fileList
-    //     })
-    //     console.log(that.data.storeFile)
-    //   },
-    //   fail(error) {
-    //     console.log('本地缓存文件获取失败', error);
-    //   }
-    // })
   },
 
   // 打开文档
@@ -194,7 +190,6 @@ Page({
         mask:true
       })
     }
-    
   },
   
   showLoad: function () {

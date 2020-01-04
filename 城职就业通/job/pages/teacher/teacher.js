@@ -29,10 +29,6 @@ Page({
   onLoad: function (options) {
     wx.hideLoading();
     wx.hideToast();
-    wx.showLoading({
-      title: '加载页面中',
-      mask : true
-    })
     this.setData({
       tid: options.tid
     })
@@ -40,7 +36,6 @@ Page({
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true,
-
       })
     }
   },
@@ -49,7 +44,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
     wx.setNavigationBarTitle({
       title: '教师端-管理中心'
     })

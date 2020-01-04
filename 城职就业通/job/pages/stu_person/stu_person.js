@@ -43,9 +43,17 @@ Page({
       },
       success:function(res){
         wx.hideLoading();
-        console.log(res.data);
         that.setData({
           stu_news: res.data
+        })
+      },
+      fail:function(err){
+        wx.hideLoading();
+        wx.showToast({
+          title: '加载失败请稍后再试',
+          mask:true,
+          duration:1200,
+          icon:"none"
         })
       }
     })

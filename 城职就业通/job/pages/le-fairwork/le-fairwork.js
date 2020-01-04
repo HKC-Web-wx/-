@@ -41,6 +41,15 @@ Page({
           le_fw: res.data,
         })
         wx.hideLoading();
+      },
+      fail: function (err) {
+        wx.hideLoading();
+        wx.showToast({
+          title: '加载失败请稍后再试',
+          duration: 1200,
+          mask: true,
+          icon: "none"
+        })
       }
     })
   },

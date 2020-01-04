@@ -29,10 +29,6 @@ Page({
   onLoad: function (options) {
     wx.hideLoading();
     wx.hideToast();
-    wx.showLoading({
-      title: '加载页面中',
-      mask:true
-    })
     this.setData({
       sid: options.sid
     })
@@ -40,7 +36,6 @@ Page({
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true,
-        
       })
     }
   },
@@ -71,18 +66,6 @@ Page({
     wx.navigateTo({
       url: '/pages/resume/resume?sid=' + this.data.sid,
     })
-    // wx.showModal({
-    //   title: '提示',
-    //   content: '此功能未开放',
-    //   success(res) {
-    //     if (res.confirm) {
-    //       console.log('用户点击确定')
-    //     } else if (res.cancel) {
-    //       console.log('用户点击取消')
-    //     }
-    //   }
-    // })
-    // return;
   },
   //招聘会
   f_click: function () {

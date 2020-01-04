@@ -131,11 +131,10 @@ Page({
       success: function (res) {
         console.log(res.data)
         wx.hideLoading();
-        wx.navigateBack({
-          
-        })
+        wx.navigateBack({});
       },
       fail: function (err) {
+        wx.hideLoading();
         console.log(err);
       }
     })

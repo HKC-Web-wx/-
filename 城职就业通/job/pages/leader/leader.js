@@ -28,10 +28,6 @@ Page({
   onLoad: function (options) {
     wx.hideLoading();
     wx.hideToast();
-    wx.showLoading({
-      title: '加载页面中',
-      mask: true
-    })
     this.setData({
       lid: options.lid
     })

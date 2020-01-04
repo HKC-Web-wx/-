@@ -1,16 +1,3 @@
-<!-- <view class='downloadView'>
-  <view wx:for="{{storeFile}}" wx:key="*this">
-    <view class='itemsView' data-info="{{storeFile}}">
-      已上传{{index+1}}个简历
-    </view>
-  </view>
-  <i class="btn" bindtap="wx_up">+</i>
-</view>
-<view class="flie">
-  <view bindtap='openStoreFile'>{{ tempFilePaths }}</view> 
-</view> -->
-
-
 <view class="resume-box">
   <view class="info-title">基础信息</view>
   <view wx:for="{{resumeInfo}}" wx:key='key' data-id="{{item.id}}" class="resume-info">
