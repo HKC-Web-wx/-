@@ -26,7 +26,7 @@
 page{
   background-color: #f4f4f4;
 }
-.fw{
+.stu_enroll_info{
   width: 95%;
   height: 240rpx;
   border: 1rpx solid #fff;
@@ -36,41 +36,35 @@ page{
   box-shadow: 2rpx 5rpx 5rpx #ccc;
   position: relative;
 }
-.fw_img{
+.enroll_img{
   width: 120rpx;
   height: 120rpx;
   background-color: #07c160;
   float: left;
   margin: 15rpx;
 }
-.fw_title{
+.enroll_title{
   color: #666;
   font-size: 36rpx;
   margin: 20rpx;
 }
-.fw_box{
+.enroll_box{
   margin: 15rpx 15rpx;
   display: inline-block;
   line-height: 50rpx;
 }
-.fw_time{
+.enroll_time{
   font-size: 32rpx;
   color: #ccc;
 }
-.fw_address{
+.enroll_address{
   font-size: 32rpx;
   color: #ccc;
 }
-.count{
-  position: absolute;
-  bottom: 20rpx;
-  right: 20rpx;
-  color: #bbb;
-  font-size: 24rpx;
-}
-.classlist{
+
+.interviewedstulist{
   width: 95%;
-  height: 125rpx;
+  height: 260rpx;
   border: 1rpx solid #fff;
   background-color: #fff;
   margin: 20rpx auto;
@@ -78,31 +72,43 @@ page{
   box-shadow: 2rpx 5rpx 5rpx #ccc;
   position: relative;
 }
-.classlist_classname{
-  color: black;
-  font-size: 36rpx;
-  font-weight: 700;
+.admissionstulist{
+  width: 95%;
+  height: 340rpx;
+  border: 1rpx solid #fff;
+  background-color: #fff;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+  box-shadow: 2rpx 5rpx 5rpx #ccc;
+  position: relative;
+}
+.stulist_boxone{
+  width: 100%;
+  display: flex;
   margin: 20rpx;
 }
-.classlist_text{
-  font-size: 32rpx;
+.stulist_boxtwo{
+  display: inline-block;
+  line-height: 45rpx;
+  position: absolute;
+  bottom: 10rpx;
+  left: 35rpx;
+}
+.stulist_boxtwo view{
+  font-size: 30rpx;
   color: #ccc;
-  position: absolute;
-  right: 30rpx;
-  top: 50%;
-  margin-top: -22rpx;
 }
-.teach_name{
-  position: absolute;
-  top: 70%;
-  left: 20rpx;
-  font-size: 25rpx;
-  color: #bbb;
+.stu_name{
+  color: #555;
+  font-size: 36rpx;
+  font-weight: 700;
+  margin-right: 25rpx;
 }
-.headmaster_name{
-  position: absolute;
-  top: 70%;
-  left: 40%;
-  font-size: 25rpx;
-  color: #bbb;
+.warning{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;
 }

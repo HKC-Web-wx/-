@@ -31,7 +31,6 @@ Page({
     this.setData({
       sid:options.sid
     })
-    this.acceptedAddlist()
   },
   acceptedAddlist: function () {
     var that = this;
@@ -48,6 +47,14 @@ Page({
           acceptedAddlist: res.data
         })
         wx.hideLoading();
+      },fail:function(err){
+        wx.hideLoading();
+        wx.showToast({
+          title: '加载失败请稍后再试',
+          icon:"none",
+          duration:1200,
+          mask:true
+        })
       }
     })
   },
@@ -72,9 +79,11 @@ Page({
     let title = e.currentTarget.dataset.title
     let pid = e.currentTarget.dataset.pid
     let luqu_time = e.currentTarget.dataset.luqu_time
+    let company_user = e.currentTarget.dataset.company_user
+    let company_phone = e.currentTarget.dataset.company_phone
     console.log(pid)
     wx.navigateTo({
-      url: '/pages/editAccepted/editAccepted?id=' + id + '&company=' + company + '&position=' + position + '&title=' + title + '&luqu_time=' + luqu_time + '&pid=' + pid
+      url: '/pages/editAccepted/editAccepted?id=' + id + '&company=' + company + '&position=' + position + '&title=' + title + '&luqu_time=' + luqu_time + '&pid=' + pid + '&company_user=' + company_user + '&company_phone=' + company_phone
     })
   },
   /**

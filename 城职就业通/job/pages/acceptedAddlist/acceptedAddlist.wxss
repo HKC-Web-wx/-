@@ -49,6 +49,14 @@ page{
   font-size: 32rpx;
   color: #ccc;
 }
+.acceptedAddlist_company_user{
+  font-size: 32rpx;
+  color: #ccc;
+}
+.acceptedAddlist_company_phone{
+  font-size: 32rpx;
+  color: #ccc;
+}
 .acceptedAddlist_company{
   color: black;
   font-size: 36rpx;

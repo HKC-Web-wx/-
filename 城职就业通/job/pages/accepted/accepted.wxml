@@ -2,10 +2,16 @@
   <view class="subox">
 
     <view>录用公司</view>
-    <input type="text" name="company" maxlength="15" placeholder="请输入您录用的公司"></input>
+    <input type="text" name="company" maxlength="16" placeholder="请输入录用您的公司"></input>
 
     <view>录用职位</view>
-    <input type="text" name="position" maxlength="10" placeholder="请输入您录用的职位"></input>
+    <input type="text" name="position" maxlength="10" placeholder="请输入录用您的职位"></input>
+
+    <view>公司联系人*</view>
+    <input type="text" name="company_user" maxlength="10" placeholder="请填写该公司联系人"></input>
+
+    <view>公司联系电话*</view>
+    <input type="text" name="company_phone" maxlength="14" placeholder="请确保填写的电话可联系"></input>
 
     <view>招聘会</view>
     <view>
@@ -16,8 +22,8 @@
 
     <view>录用时间</view>
     <view>
-      <picker mode="date" start="1999-01-01" end="2999-12-12" bindchange="datePickerBindchange" name="time">
-      <view>{{dateValue}}</view>
+      <picker mode="date" start="2018-01-01" end="2030-12-12" bindchange="datePickerBindchange" name="time">
+        <view>{{dateValue}}</view>
       </picker>
     </view>
 

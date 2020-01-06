@@ -1,9 +1,15 @@
-<view wx:if="{{enrolment.length == 0}}" class="warning">请到首页招聘会模块报名</view>
-<view wx:for="{{enrolment}}" wx:key="key" wx:for-item="enrolment" class="enrolment" data-id="{{enrolment.pid}}">
-  <view class="enrolment_title">{{ enrolment.title }}</view>
-  <image class="enrolment_img" src="{{ enrolment.image }}"></image>
-  <view class="enrolment_box">
-    <view class="enrolment_time">时间：{{ enrolment.addtime }}</view>
-    <view class="enrolment_address">地点：{{ enrolment.address }}</view>
+<scroll-view class="in-box" scroll-y="true" style="height:{{winHeight -80}}px">
+  <view wx:if="{{enrolment.length == 0}}" class="warning">请到首页招聘会模块报名</view>
+  <view wx:for="{{enrolment}}" wx:key="key" wx:for-item="enrolment" class="enrolment" data-id="{{enrolment.pid}}">
+    <view class="enrolment_title">{{ enrolment.title }}</view>
+    <image class="enrolment_img" src="{{ enrolment.image }}"></image>
+    <view class="enrolment_box">
+      <view class="enrolment_time">时间：{{ enrolment.addtime }}</view>
+      <view class="enrolment_address">地点：{{ enrolment.address }}</view>
+    </view>
   </view>
+</scroll-view>
+
+<view class="add-box">
+  <button bindtap="add">添加报名信息</button>
 </view>

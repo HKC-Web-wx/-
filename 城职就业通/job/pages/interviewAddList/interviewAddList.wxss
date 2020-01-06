@@ -28,7 +28,7 @@ page{
   opacity: 0.7;
 }
 .in-box{
-  margin-bottom: 170rpx;
+  margin-bottom: 150rpx;
 }
 .interviewAddList{
   background-color: #fff;

@@ -91,7 +91,7 @@ page{
 }
 .count{
   position: absolute;
-  top: 20rpx;
+  bottom: 20rpx;
   right: 20rpx;
   color: #bbb;
   font-size: 24rpx;

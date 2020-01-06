@@ -128,6 +128,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '城职就业通',
+      path: '/pages/index/index'
+    }
   }
 })

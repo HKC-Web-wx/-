@@ -13,6 +13,8 @@ Page({
     company: '',
     position: '',
     title: '无',
+    company_user:'',
+    company_phone:'',
     id: '',
     luqu_time: '',
     fairboolen: false,
@@ -39,6 +41,8 @@ Page({
     var that = this;
     var company = e.detail.value.company;
     var position = e.detail.value.position;
+    var company_user = e.detail.value.company_user;
+    var company_phone = e.detail.value.company_phone;
     if (that.data.fairboolen == false) {
       that.setData({
         pid: that.data.pid
@@ -64,9 +68,23 @@ Page({
         icon: "none"
       })
       return;
-    } else if (!position) {
+    }if (!position) {
       wx.showToast({
         title: '职位不能为空',
+        icon: "none"
+      })
+      return;
+    }
+    if (!company_user) {
+      wx.showToast({
+        title: '联系人不能为空',
+        icon: "none"
+      })
+      return;
+    }
+    if (!company_phone) {
+      wx.showToast({
+        title: '电话不能为空',
         icon: "none"
       })
       return;
@@ -84,7 +102,9 @@ Page({
         pid: that.data.pid,
         luqu_time: that.data.luqu_time,
         company: e.detail.value.company,
-        position: e.detail.value.position
+        position: e.detail.value.position,
+        company_user: e.detail.value.company_user,
+        company_phone: e.detail.value.company_phone
       },
       success: function (res) {
         console.log(res.data)
@@ -106,7 +126,9 @@ Page({
         position: options.position,
         title: '无',
         luqu_time: options.luqu_time,
-        pid: options.pid
+        pid: options.pid,
+        company_user:options.company_user,
+        company_phone:options.company_phone
       })
     } else {
       that.setData({
@@ -115,7 +137,9 @@ Page({
         position: options.position,
         title: options.title,
         luqu_time: options.luqu_time,
-        pid: options.pid
+        pid: options.pid,
+        company_user: options.company_user,
+        company_phone: options.company_phone
       })
     }
   },

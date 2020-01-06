@@ -6,9 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    winHeight:'',
+    stu_id:''
   },
 
+  add:function(e){
+    var sid = this.data.stu_id
+    wx.navigateTo({
+      url: '/pages/add_enroll/add_enroll?sid=' + sid,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -19,6 +26,13 @@ Page({
     })
     var that = this;
     console.log(options)
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          winHeight: res.windowHeight
+        });
+      }
+    });
     wx.request({
       url: 'https://test.hivetech.cn/hkc/job/Home/Fair/sign_list',
       method: 'POST',
@@ -29,7 +43,8 @@ Page({
       success: function (res) {
         console.log(res.data)
         that.setData({
-          enrolment: res.data
+          enrolment: res.data,
+          stu_id: options.sid
         })
         wx.hideLoading();
       }
@@ -84,6 +99,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+    return {
+      title: '城职就业通',
+      path: '/pages/index/index'
+    }
   }
 })

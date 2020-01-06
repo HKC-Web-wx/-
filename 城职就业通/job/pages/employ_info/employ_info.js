@@ -1,8 +1,8 @@
-// pages/tong-data/tong-data.js
-var app = getApp() 
+
+var app = getApp()
 Page({
 
-  /**
+  /*
    * 页面的初始数据
    */
   data: {
@@ -11,10 +11,11 @@ Page({
     winHeight: 0,
     // tab切换  
     currentTab: 0,
-    tid:'',
-    fairList:'',
+    sid: '',
+    stu_enroll_info: '',
     //招聘会报名人数
-    countList:'',
+    stu_interviewed_info: '',
+    stu_admission_info:'',
   },
 
 
@@ -35,36 +36,14 @@ Page({
       })
     }
   },
-  //点击跳转到班级列表
-  enroll_classlist:function(e){
-    var that = this;
-    let pid = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/enroll-classlist/enroll-classlist?pid=' + pid + '&tid=' + that.data.tid
-    })
-  },
-  interviewed_stulist:function(e){
-    var that = this;
-    let cid = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/interviewed-stulist/interviewed-stulist?cid=' + cid ,
-    })
-  },
-  accepted_stulist:function(e){
-    var that = this;
-    let cid = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/accepted-stulist/accepted-stulist?cid=' + cid ,
-    })
-  },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this;
     that.setData({
-      tid:options.tid
+      sid: options.sid
     })
     // 获取系统信息
     wx.getSystemInfo({
@@ -77,40 +56,52 @@ Page({
     });
   },
 
-  loadData:function(){
+  loadData: function () {
     var that = this;
     wx.showLoading({
       title: '加载数据中',
       mask: true
     })
-    //招聘会报名列表
+    //报名
     wx.request({
-      url: 'https://test.hivetech.cn/hkc/job/Home/Fair/fair_enroll_count',
+      url: 'https://test.hivetech.cn/hkc/job/Home/Teacher/stu_enroll_info',
       method: 'GET',
       data: {
-        teach_id: that.data.tid
+        stu_id: that.data.sid
       },
       success: function (res) {
         console.log(res.data)
         that.setData({
-          fairList: res.data
-        })
-        res.data.forEach(function(item,index){
-          console.log(item.title + '+++' + item.count)
+          stu_enroll_info: res.data
         })
       }
     })
-    //已面试已录取班级渲染
+    //面试
     wx.request({
-      url: 'https://test.hivetech.cn/hkc/job/Home/Fair/class_list',
+      url: 'https://test.hivetech.cn/hkc/job/Home/Teacher/stu_interviewed_info',
       method: 'GET',
       data: {
-        teach_id: that.data.tid
+        stu_id: that.data.sid
       },
       success: function (res) {
         console.log(res.data)
         that.setData({
-          classlist: res.data
+          stu_interviewed_info: res.data
+        })
+        wx.hideLoading();
+      }
+    })
+    //录取
+    wx.request({
+      url: 'https://test.hivetech.cn/hkc/job/Home/Teacher/stu_admission_info',
+      method: 'GET',
+      data: {
+        stu_id: that.data.sid
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          stu_admission_info: res.data
         })
         wx.hideLoading();
       }
@@ -121,7 +112,7 @@ Page({
    */
   onReady: function () {
     wx.setNavigationBarTitle({
-      title: '统计数据'
+      title: '学生就业信息'
     })
   },
 

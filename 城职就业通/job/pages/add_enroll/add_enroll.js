@@ -1,50 +1,25 @@
-
+// pages/add_enroll/add_enroll.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cid: '',
-    stulist:'',
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载数据中',
-      mask:true
-    })
-    var that = this
-    console.log(options)
-    that.setData({
-      cid: options.cid
-    })
-    wx.request({
-      url: 'https://test.hivetech.cn/hkc/job/Home/Fair/stu_admission_list',
-      method: 'GET',
-      data: {
-        class_id: that.data.cid
-      },
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          stulist: res.data
-        })
-        wx.hideLoading();
-      }
-    })
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.setNavigationBarTitle({
-      title: '录取信息'
-    })
+
   },
 
   /**

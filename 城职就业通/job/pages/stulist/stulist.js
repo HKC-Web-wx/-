@@ -133,6 +133,14 @@ Page({
       }
     })
   },
+  //点击查看学生详情
+  employ_info: function (e) {
+    console.log(e)
+    var sid = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/employ_info/employ_info?sid=' + sid,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -181,6 +189,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '城职就业通',
+      path: '/pages/index/index'
+    }
   }
 })

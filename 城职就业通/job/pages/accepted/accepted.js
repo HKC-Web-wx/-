@@ -32,6 +32,8 @@ Page({
       var luqu_time = e.detail.value.time;
       var company = e.detail.value.company;
       var position = e.detail.value.position;
+      var company_user = e.detail.value.company_user;
+      var company_phone = e.detail.value.company_phone;
     }
     if (!e.detail.value.title){
       wx.showToast({
@@ -39,29 +41,38 @@ Page({
         icon: "none"
       })
       return;
-    }else if(luqu_time == ''){
+    }if(luqu_time == ''){
       wx.showToast({
         title: '时间不能为空',
         icon: "none"
       })
       return;
-    }else if(company == ''){
+    }if(company == ''){
       wx.showToast({
         title: '公司不能为空',
         icon: "none"
       })
       return;
-    }else if(position == ''){
+    }if(position == ''){
       wx.showToast({
         title: '职位不能为空',
         icon: "none"
       })
       return;
-    }
-    wx.showLoading({
-      title: '提交中..',
-      mask: true
-    })
+    } if (company_user == '') {
+      wx.showToast({
+        title: '联系人不能为空',
+        icon: "none"
+      })
+      return;
+    } if (company_phone == '') {
+      wx.showToast({
+        title: '联系电话不能为空',
+        icon: "none"
+      })
+      return;
+    } 
+
     wx.showLoading({
       title: '提交数据中',
       mask: true
@@ -75,16 +86,19 @@ Page({
         luqu_time: luqu_time,
         stu_id: that.data.sid,
         company: company,
-        position: position
+        position: position,
+        company_user: company_user,
+        company_phone: company_phone
       },
       success: function (res) {
         console.log(res.data)
         wx.showToast({
           title: '提交成功',
         })
-        wx.navigateBack();
         wx.hideLoading();
         wx.hideToast();
+        wx.navigateBack();
+        
       }
     })
   },

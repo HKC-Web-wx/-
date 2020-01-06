@@ -14,6 +14,7 @@
     "pages/resume/resume",
     "pages/editResume/editResume",
     "pages/enrolment/enrolment",
+    "pages/add_enroll/add_enroll",
     "pages/interviewed/interviewed",
     "pages/interviewAddList/interviewAddList",
     "pages/editInterview/editInterview",
@@ -28,6 +29,7 @@
     "pages/stulist/stulist",
     "pages/addstudent/addstudent",
     "pages/editstudent/editstudent",
+    "pages/employ_info/employ_info",
 
     "pages/tong-data/tong-data",
     "pages/enroll-classlist/enroll-classlist",

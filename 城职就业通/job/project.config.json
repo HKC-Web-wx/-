@@ -61,7 +61,7 @@
 					"id": 0,
 					"name": "student",
 					"pathName": "pages/student/student",
-					"query": "sid=1",
+					"query": "sid=157",
 					"scene": null
 				},
 				{
@@ -159,7 +159,7 @@
 					"id": 14,
 					"name": "pages/teacher/teacher",
 					"pathName": "pages/teacher/teacher",
-					"query": "tid=1",
+					"query": "tid=16",
 					"scene": null
 				},
 				{
