@@ -1,2 +1,15 @@
-<!--pages/add_enroll/add_enroll.wxml-->
-<text>pages/add_enroll/add_enroll.wxml</text>
+<form bindsubmit="formSubmit">
+  <view class="subox">
+
+    <view>招聘会名称</view>
+    <input type="text" name="title" maxlength="20" placeholder="请输入标题"></input>
+
+    <view>招聘会地点</view>
+    <input type="text" name="address" maxlength="20" placeholder="请输入招聘会举办地点"></input>
+
+  </view>
+
+  <view class="btn-box">
+    <button formType="submit">确定提交</button>
+  </view>
+</form>

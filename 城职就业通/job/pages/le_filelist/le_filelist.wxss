@@ -21,10 +21,10 @@ page{
 }
 .p{
   font-size: 30rpx;
-  text-indent: 24px;
   color: #666;
   padding: 20rpx;
   line-height: 60rpx;
+  display: block;
 }
 .p_notcie{
   color: #666;

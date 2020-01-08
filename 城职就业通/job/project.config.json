@@ -121,10 +121,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 9,
 					"name": "pages/enrolment/enrolment",
 					"pathName": "pages/enrolment/enrolment",
-					"query": "",
+					"query": "sid=169",
 					"scene": null
 				},
 				{
@@ -391,6 +391,20 @@
 					"name": "pages/show_resume/show_resume",
 					"pathName": "pages/show_resume/show_resume",
 					"query": "eid=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/enrolment/enrolment",
+					"pathName": "pages/enrolment/enrolment",
+					"query": "sid=169",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/enrolment/enrolment",
+					"pathName": "pages/enrolment/enrolment",
+					"query": "sid=169",
 					"scene": null
 				}
 			]

@@ -3,7 +3,7 @@
   <view>
       <image class="img" src="{{le_fw.image}}" lazy-load="true" mode="scaleToFill"></image>
       <view class="tit">{{ le_fw.title }}</view> 
-      <view class="p">{{ le_fw.details }}</view>
+      <text class="p" decode="true" space="nbsp">{{ le_fw.details }}</text>
       <view class="p_notcie">时间：{{ le_fw.create_time }}</view>
       <view class="p_notcie">地点：{{ le_fw.address }}</view>
       <view class="p_notcie">主办单位：珠海城市职业技术学院</view>
