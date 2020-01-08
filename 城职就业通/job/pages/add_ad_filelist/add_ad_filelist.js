@@ -63,7 +63,6 @@ Page({
     var title = e.detail.value.title;
     var address = e.detail.value.address;
     var details = e.detail.value.details;
-
     console.log(url + that.data.imageurl)
     if (that.data.image == '') {
       wx.showToast({
