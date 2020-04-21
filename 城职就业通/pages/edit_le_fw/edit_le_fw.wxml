@@ -1,0 +1,34 @@
+<!--pages/edit_le_fw/edit_le_fw.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="subox">
+
+    <view>标题</view>
+    <input type="text" name="title" maxlength="20" value="{{title}}" placeholder="请输入标题"></input>
+
+    <view>地点</view>
+    <input type="text" name="address" maxlength="20" value="{{address}}" placeholder="请输入地点"></input>
+
+    <view>封面</view>
+    <view class="imagebox">
+      <image class="addimage" wx:if="{{image}}" src="{{image}}" mode="aspectFill" bindtap="chooseimage"></image>
+      <view class="addimage" wx:else bindtap="chooseimage">+</view>
+    </view>
+  
+    <view>详情</view>
+    <view class="detailText">
+      <textarea name="details" value="{{details}}" maxlength="-1" placeholder="请输入详情"></textarea>
+    </view>
+
+    <view class="fat">
+      <view>上传招聘文件 <text class="tip"> (文件大小限制30MB以内)</text></view>
+      <view class="upload-file" bindtap="uploadFile">+</view>
+      <view class="look-file" bindtap="look_file">查看已上传的文件</view>
+    </view>
+  </view>
+
+  <view class="btn-box">
+    <button formType="submit">确定</button>
+  </view>
+</form>
+
+

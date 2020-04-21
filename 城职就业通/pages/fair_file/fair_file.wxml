@@ -1,0 +1,11 @@
+<view class="box">
+  <block wx:for="{{filePath_list}}" wx:key="key">
+    <view class="infobox">
+      <text>{{index+1}}: {{item.filename}}</text>
+      <view class="btn-box">
+        <view class="btn" data-index="{{index}}" bindtap="lookFile">查看</view>
+        <view class="btn" data-index="{{index}}" bindtap="deleteFile">删除</view>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,419 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": true,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.2",
+	"appid": "wx74e6c84eedb281cc",
+	"projectname": "%E5%B0%B1%E4%B8%9A%E9%80%9A",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "student",
+					"pathName": "pages/student/student",
+					"query": "sid=157",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/fairwork/fairwork",
+					"pathName": "pages/fairwork/fairwork",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/resume/resume",
+					"pathName": "pages/resume/resume",
+					"query": "sid=1",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "pages/filelist/filelist",
+					"pathName": "pages/filelist/filelist",
+					"query": "id=4",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "pages/messages/messages",
+					"pathName": "pages/messages/messages",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/interviewed/interviewed",
+					"pathName": "pages/interviewed/interviewed",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/interviewAddList/interviewAddList",
+					"pathName": "pages/interviewAddList/interviewAddList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "pages/enrolment/enrolment",
+					"pathName": "pages/enrolment/enrolment",
+					"query": "sid=169",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/accepted/accepted",
+					"pathName": "pages/accepted/accepted",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "pages/classlist/classlist",
+					"pathName": "pages/classlist/classlist",
+					"query": "tid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editclass/editclass",
+					"pathName": "pages/editclass/editclass",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/addclass/addclass",
+					"pathName": "pages/addclass/addclass",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "pages/teacher/teacher",
+					"pathName": "pages/teacher/teacher",
+					"query": "tid=16",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/addstudent/addstudent",
+					"pathName": "pages/addstudent/addstudent",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "pages/stulist/stulist",
+					"pathName": "pages/stulist/stulist",
+					"query": "id=4",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "pages/tong-data/tong-data",
+					"pathName": "pages/tong-data/tong-data",
+					"query": "tid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/classlist/classlist",
+					"pathName": "pages/classlist/classlist",
+					"query": "tid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/enroll-classlist/enroll-classlist",
+					"pathName": "pages/enroll-classlist/enroll-classlist",
+					"query": "tid=1",
+					"scene": null
+				},
+				{
+					"id": 20,
+					"name": "pages/enroll-stulist/enroll-stulist",
+					"pathName": "pages/enroll-stulist/enroll-stulist",
+					"query": "cid=4",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "pages/leader/leader",
+					"pathName": "pages/leader/leader",
+					"query": "lid=1",
+					"scene": null
+				},
+				{
+					"id": 22,
+					"name": "pages/admin/admin",
+					"pathName": "pages/admin/admin",
+					"query": "aid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/add_le_filelist/add_le_filelist",
+					"pathName": "pages/add_le_filelist/add_le_filelist",
+					"query": "lid=1",
+					"scene": null
+				},
+				{
+					"id": 24,
+					"name": "pages/le-fairwork/le-fairwork",
+					"pathName": "pages/le-fairwork/le-fairwork",
+					"query": "lid=1",
+					"scene": null
+				},
+				{
+					"id": 25,
+					"name": "pages/le_filelist/le_filelist",
+					"pathName": "pages/le_filelist/le_filelist",
+					"query": "id=1&lid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ad&le-addclass/ad&le-addclass",
+					"pathName": "pages/ad&le-addclass/ad&le-addclass",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ad&le-addstudent/ad&le-addstudent",
+					"pathName": "pages/ad&le-addstudent/ad&le-addstudent",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ad&le-addteacher/ad&le-addteacher",
+					"pathName": "pages/ad&le-addteacher/ad&le-addteacher",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ad&le-editclass/ad&le-editclass",
+					"pathName": "pages/ad&le-editclass/ad&le-editclass",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ad&le-editstudent/ad&le-editstudent",
+					"pathName": "pages/ad&le-editstudent/ad&le-editstudent",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ad&le-editteacher/ad&le-editteacher",
+					"pathName": "pages/ad&le-editteacher/ad&le-editteacher",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/edit_le_fw/edit_le_fw",
+					"pathName": "pages/edit_le_fw/edit_le_fw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editstudent/editstudent",
+					"pathName": "pages/editstudent/editstudent",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/adle-tong-data/adle-tong-data",
+					"pathName": "pages/adle-tong-data/adle-tong-data",
+					"query": "aid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/adle-stulist/adle-stulist",
+					"pathName": "pages/adle-stulist/adle-stulist",
+					"query": "aid=1",
+					"scene": null
+				},
+				{
+					"id": 36,
+					"name": "pages/ad_filelist/ad_filelist",
+					"pathName": "pages/ad_filelist/ad_filelist",
+					"query": "id=4",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ad_leader/ad_leader",
+					"pathName": "pages/ad_leader/ad_leader",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/stu_person/stu_person",
+					"pathName": "pages/stu_person/stu_person",
+					"query": "sid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/th_person/th_person",
+					"pathName": "pages/th_person/th_person",
+					"query": "tid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/le_person/le_person",
+					"pathName": "pages/le_person/le_person",
+					"query": "lid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/adle-enroll-classlist/adle-enroll-classlist",
+					"pathName": "pages/adle-enroll-classlist/adle-enroll-classlist",
+					"query": "pid=63",
+					"scene": null
+				},
+				{
+					"id": 42,
+					"name": "个人简历",
+					"pathName": "pages/resume/resume",
+					"query": "sid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/leader/leader",
+					"pathName": "pages/leader/leader",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/enterprise/enterprise",
+					"pathName": "pages/enterprise/enterprise",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/enterpriseList/enterpriseList",
+					"pathName": "pages/enterpriseList/enterpriseList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/enterprise/enterprise",
+					"pathName": "pages/enterprise/enterprise",
+					"query": "eid=2",
+					"scene": null
+				},
+				{
+					"id": 47,
+					"name": "pages/show_resume/show_resume",
+					"pathName": "pages/show_resume/show_resume",
+					"query": "eid=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/enrolment/enrolment",
+					"pathName": "pages/enrolment/enrolment",
+					"query": "sid=169",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/enrolment/enrolment",
+					"pathName": "pages/enrolment/enrolment",
+					"query": "sid=169",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/edit_ad_fw/edit_ad_fw",
+					"pathName": "pages/edit_ad_fw/edit_ad_fw",
+					"scene": null
+				}
+			]
+		}
+	}
+}

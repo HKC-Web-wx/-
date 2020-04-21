@@ -1,0 +1,35 @@
+
+<form bindsubmit="formSubmit">
+  <view class="subox">
+
+    <view>面试公司</view>
+    <input type="text" name="company" maxlength="15" placeholder="请输入您面试的公司" bindinput="input_tips" value="{{inputValue}}"></input>
+    <scroll-view class="select_box" wx:if="{{temp.length != 0 && select == true}}" scroll-y="true">
+      <view wx:for="{{temp}}" wx:key="item" wx:for-item="temp">
+        <view class="searchRecord" bindtap="mySelect" data-Company="{{temp.Company}}">{{temp.Company}}</view>
+      </view>
+    </scroll-view>
+
+    <view>面试职位</view>
+    <input type="text" name="position" maxlength="10" placeholder="请输入您面试的职位"></input>
+
+    <view>招聘会</view>
+    <view>
+      <picker mode="selector" range="{{inValue}}" range-key="title" bindchange="inBindchange" name="title">
+        <view>{{inValue[index].title}}</view>
+      </picker>
+    </view>
+
+    <view>面试时间</view>
+    <view>
+      <picker mode="date" start="1999-01-01" end="2999-12-12" bindchange="datePickerBindchange" name="time">
+        <view>{{dateValue}}</view>
+      </picker>
+    </view>
+
+  </view>
+
+  <view class="btn-box">
+    <button formType="submit">提交</button>
+  </view>
+</form>
