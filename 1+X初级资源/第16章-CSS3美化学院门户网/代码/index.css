@@ -1,0 +1,71 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,html{
+	height: 100%;
+	width: 100%;
+}
+header {
+	height: 15%;
+	width: 100%;
+}
+section{
+	height: 75%;
+	width: 100%;
+}
+footer{
+	height: 10%;
+	width: 100%;
+}
+@font-face{
+	font-family: "myfont";
+	src: url("../font/1.ttf");
+}
+#img_logo{
+	width: 100%;
+}
+
+.div_article{
+	width: 90%;
+	border-radius: 15px;
+	padding: 10px;
+	border: 2px solid #eee;
+	margin: 5px auto;
+}
+section img{
+	float: left;
+	width: 20%;
+	margin-top: 13px;
+}
+section p {
+	float: left;
+	width: 70%;
+}
+section span{
+	width: 70%;
+	color: #d3d3d3;
+	overflow: hidden;
+	display: block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+section a:link{
+	background-color: orange;
+}
+section a:visited{
+	color: red;
+}
+
+#gradl {
+	width: 95%;
+	margin: 2px auto;
+	height: 10px;
+	background: linear-gradient(to right, red , blue);
+	border-radius: 20px;
+	box-shadow: 2px 5px 2px #888;
+}
+
+footer p {
+	text-shadow: 1px 1px #ff0000;
+}

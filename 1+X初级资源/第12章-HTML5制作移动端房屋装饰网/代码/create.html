@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<meta charset="UTF-8">
+	<title>创建房间</title>
+</head>
+<body>
+	<header width="375px" align="center">
+		<h3>创建房屋</h3>
+	</header>
+	<article align="center">
+		<form action="#" method="get">
+			<!-- 用户输入 -->
+			房屋名称:<input type="text" spellcheck="true" placeholder="请输入名称" required="required"><span>*</span>
+			<br/><br/>
+			<!-- 使用select标签选择房屋类型 -->
+			<select>
+				<option value="单间">单间</option>
+				<option value="套房">套房</option>
+			</select><span>*</span>
+			<br/><br/>
+			<!-- 使用input标签中的number类型选择房间数量 -->
+			房间数量:<input type="number" min="1" max="2"><br/><br/>
+			房屋建成时间:<input type="date"><br/><br/>
+			<!-- 使用input标签中的file类型上传图片 -->
+			上传图片：<input type="file"  accept="image/gif,image.jpg" multiple="multiple"><br/><br/>
+			<textarea placeholder="输入房屋信息.."></textarea><br/><br/>
+			<input type="submit" value="创建">
+		</form>
+	</article>
+</body>
+</html>

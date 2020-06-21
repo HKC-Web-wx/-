@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>项目提成计算器</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div id="box">
+		<header>项目提成计算器</header>
+		<div id="dataBox">
+			<input type="text" id="bonus" readonly="readonly" value="" placeholder="项目提成" />
+		</div>
+		<input type="text" value="0" id="benefit" placeholder="项目收益" />
+		<select id="roles">
+			<option value="1">程序员</option>
+			<option value="2">项目经理</option>
+			<option value="3">销售人员</option>
+		</select>
+		<div id="count">
+			<input type="button" value="计算" id="countBtn" onclick="countFun()" />
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+
+// 1. 程序员：如果盈利超过1万元，则按盈利的5%计算提成；如果盈利为2000-10 000元，
+// 	则该项目提成50元；如果盈利不超过2000元， 则该项目无提成。
+// 	
+// 2. 项目经理： 如果盈利超过2万元， 则按盈利的20%计算提成：如果不超过2万元，
+// 	则按10%计算提成。
+// 	
+// 3. 销售人员：如果盈利超过10万元， 则按盈利的30%计算提成；如果盈利为5万-10万元，
+// 	则按盈利的20%计算提成；如果盈利低于5万元， 则按盈利的5%计算提成。
+// 	
+	// 封装角色提成算法
+	function roles(){
+		// 程序员提成计算
+		this.programmer = function(data){
+			if(data > 10000){
+				return data * 0.05;
+			}else if(data >= 2000){
+				return 50;
+			}else{
+				return 0;
+			}
+		}
+		//项目经理提成计算
+		this.manager = function(data){
+			if(data > 20000){
+				return data * 0.2;
+			}else {
+				return data *0.1;
+			}
+		}
+		// 销售人员提成计算
+		this.salesman = function(data){
+			if(data > 100000){
+				return data * 0.3;
+			}else if(data >= 50000){
+				return data * 0.2;
+			}else{
+				return data * 0.05;
+			}
+		}
+	}
+
+	//提成对象
+	function bonus(){
+		this.benefit = 0; //项目收益
+	}
+	//函数原型里 添加一个设置项目收益的方法
+	bonus.prototype.setBenefit = function(data){
+		this.benefit = data;
+	};
+
+	bonus._proto_ = new roles();
+	bonus.prototype.getBonus = function(role){
+		return role(this.benefit);//通过原型链中的方法计算提成
+	}
+
+	//创建bonus的实例对象
+	var bonusCount = new bonus();
+
+	//角色筛选
+	var strategies = {
+		"1": function(){
+			return bonusCount.getBonus(bonus._proto_.programmer);
+		},
+		"2": function(){
+			return bonusCount.getBonus(bonus._proto_.manager);
+		},
+		"3": function(){
+			return bonusCount.getBonus(bonus._proto_.salesman);
+		}
+	}
+
+	//计算按钮单击事件
+	function countFun(){
+		//获取项目收益
+		var benefit = document.getElementById("benefit").value;
+		console.log("获取的项目收益"+benefit);
+		//获取选择的角色
+		var role = document.getElementById("roles").value;
+		console.log("设置的角色"+role);
+		//设置项目收益
+		bonusCount.setBenefit(benefit);
+		//角色对应的计算提成方法
+		var bonusText = document.getElementById("bonus");
+		console.log("未计算前的"+bonusText.value);
+		bonusText.value = strategies[role]();
+		console.log("计算后的"+bonusText.value);
+	}
+</script>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/landy-iconfont.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <title>响应式网站</title>
+  </head>
+  <body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light p-2.5 fixed-top text-primary shadow-nav" id="navbar-example2">
+        <a class="h2 pl-3" href="#">Landy</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="font-size: 1.1rem">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item m-2">
+              <a class="nav-link active" href="#">Rotation</a>
+            </li>
+            <li class="nav-item m-2">
+              <a class="nav-link" href="#">Introduce</a>
+            </li>
+            <li class="nav-item m-2">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item m-2">
+              <a class="nav-link" href="#">Text Page</a>
+            </li>
+          </ul>
+          <div class="navbar-text mr-4">
+              <!-- Button trigger modal-->
+              <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Sign Up</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- 登录表单页面model -->
+    <div id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="exampleModalLabel" class="modal-title">Sign Up Modal</h5>
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="InputFullname1">Fullname</label>
+                <input type="text" class="form-control" id="InputFullname1" placeholder="Fullname">
+              </div>
+              <div class="form-group">
+                <label for="InputPassword1">Password</label>
+                <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 轮播广告图 -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <a href="#" class="pc-imgbox d-none d-lg-block" style="background-image: url(images/banner.jpg)"></a>
+          <a href="#" class="m-imgbox d-block d-lg-none"><img class="d-block w-100" src="images/s-banner.png" alt=""></a>
+        </div>
+        <div class="carousel-item">
+          <a href="#" class="pc-imgbox d-none d-lg-block" style="background-image: url(images/banner.jpg)"></a>
+          <a href="#" class="m-imgbox d-block d-lg-none"><img class="d-block w-100" src="images/s-banner.png" alt=""></a>
+        </div>
+        <div class="carousel-item">
+          <a href="#" class="pc-imgbox d-none d-lg-block" style="background-image: url(images/banner.jpg)"></a>
+          <a href="#" class="m-imgbox d-block d-lg-none"><img class="d-block w-100" src="images/s-banner.png" alt=""></a>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <!-- 选项卡 -->
+    <section id="browser" class="browser">
+      <div class="container">
+        <div class="row d-flex justify-content-center"> 
+          <div class="col-lg-8 text-center">
+            <h2 class="h2 mb-5">How it works</h2>
+            <div class="browser-mockup">
+              <div id="nav-tabContent" class="tab-content">
+                <div id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab" class="tab-pane fade show active">
+                  <img src="images/preview-3.png" class="img-fluid">
+                </div>
+                <div id="nav-second" role="tabpanel" aria-labelledby="nav-second-tab" class="tab-pane fade">
+                  <img src="images/preview-2.png" class="img-fluid">
+                </div>
+                <div id="nav-third" role="tabpanel" aria-labelledby="nav-third-tab" class="tab-pane fade">
+                  <img src="images/preview-1.png" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="myTab" role="tablist" class="nav nav-tabs">
+          <div class="row">
+            <div class="col-md-4 tabBox">
+              <a id="nav-first-tab" data-toggle="tab" href="#nav-first" role="tab" aria-controls="nav-first" aria-expanded="true" class="nav-item nav-link active"> 
+                <span class="number">1</span>
+                Choose any website to turn into an interactive pinboard for feedback
+              </a>
+            </div>
+            <div class="col-md-4 tabBox">
+              <a id="nav-second-tab" data-toggle="tab" href="#nav-second" role="tab" aria-controls="nav-second" class="nav-item nav-link"> 
+                <span class="number">2</span>Choose any website to turn into an interactive pinboard for feedback
+              </a>
+            </div>
+            <div class="col-md-4 tabBox">
+              <a id="nav-third-tab" data-toggle="tab" href="#nav-third" role="tab" aria-controls="nav-third" class="nav-item nav-link"> 
+                <span class="number">3</span>
+                Choose any website to turn into an interactive pinboard for feedback
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 栅格系统1 -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="row d-flex align-items-center mb-5">
+          <div class="text col-lg-6 order-2 order-lg-1">
+            <div class="icon"><img src="images/medal.svg" alt="图标" class="img-fluid"></div>
+            <h4>Your peace of mind is our business</h4>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
+          </div>
+          <div class="image col-lg-6 order-1 order-lg-2"><img src="images/feature-1.png" alt="..." class="img-fluid"></div>
+        </div>
+        <div class="row d-flex align-items-center mb-5">
+          <div class="image col-lg-6"><img src="images/feature-2.png" alt="图标" class="img-fluid"></div>
+          <div class="text col-lg-6">
+            <div class="icon"><img src="images/hourglass.svg" alt="..." class="img-fluid"></div>
+            <h4>Your peace of mind is our business</h4>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
+          </div>
+        </div>
+        <div class="row d-flex align-items-center mb-5">
+          <div class="text col-lg-6 order-2 order-lg-1">
+            <div class="icon"><img src="images/cup.svg" alt="图标" class="img-fluid"></div>
+            <h4>Your peace of mind is our business</h4>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
+          </div>
+          <div class="image col-lg-6 order-1 order-lg-2"><img src="images/feature-3.png" alt="..." class="img-fluid"></div>
+        </div>
+      </div>
+    </section>
+    <!-- 栅格系统2 -->
+    <section id="extra-features" class="extra-features bg-primary">
+      <div class="container text-center">
+        <header>
+          <h2>More great features</h2>
+          <div class="row">
+            <p class="lead col-lg-8 mx-auto">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+          </div>
+        </header>
+        <div class="row">
+          <div class="item col-lg-4 col-md-6">
+            <div class="icon"><i class="icon-diploma"></i></div>
+            <h3 class="h5">Lorem Ipsum Dolor</h3>
+            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+          </div>
+          <div class="item col-lg-4 col-md-6">
+            <div class="icon"><i class="icon-folder-1"></i></div>
+            <h3 class="h5">Lorem Ipsum Dolor</h3>
+            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+          </div>
+          <div class="item col-lg-4 col-md-6">
+            <div class="icon"><i class="icon-gears"></i></div>
+            <h3 class="h5">Lorem Ipsum Dolor</h3>
+            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+          </div>
+          <div class="item col-lg-4 col-md-6">
+            <div class="icon"><i class="icon-management"></i></div>
+            <h3 class="h5">Lorem Ipsum Dolor</h3>
+            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+          </div>
+          <div class="item col-lg-4 col-md-6">
+            <div class="icon"><i class="icon-pie-chart"></i></div>
+            <h3 class="h5">Lorem Ipsum Dolor</h3>
+            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+          </div>
+          <div class="item col-lg-4 col-md-6">
+            <div class="icon"><i class="icon-quality"></i></div>
+            <h3 class="h5">Lorem Ipsum Dolor</h3>
+            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 底部版权 -->
+    <footer class="copyrights">
+        <div class="container">
+          <div class="col-sm-12 text-center">
+            <p>Copyright &copy; 2020.Company name All rights reserved</p>
+          </div>
+        </div>
+    </footer>
+  </body>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js"></script>
+</html>

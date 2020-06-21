@@ -1,0 +1,27 @@
+body{
+	text-align: center;
+}
+header{
+	height: 10%;
+	width: 100%;
+}
+section{
+	width: 100%;
+}
+textarea{
+	width: 90%;
+	height: 100%;
+	resize: none;
+}
+mark{
+	background: none;
+}
+#commentList{
+	text-align: left;
+}
+footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin: auto;
+}

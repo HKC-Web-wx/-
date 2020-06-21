@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+   	<link rel="stylesheet" type="text/css" href="stylesheets/public.css">
+	
+</head>
+<body>
+	 <table class="table table-striped" style="width: 500px;margin:50px auto;">
+        <thead>
+            <tr>
+                <td>用户名</td>
+                <td>最近登录时间</td>
+            </tr>
+        </thead>
+        <tbody id="table-tbody">
+            
+        </tbody>
+    </table>
+	<script src="./javascript/ajax.js"></script>
+	<script src="./javascript/header.js"></script>
+	<script type="text/javascript">
+		function formatTime(time){
+			var d = new Date(time);
+			return d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate() + 'ㅤ' +d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
+		}
+		$_ajax('get','/user/userall',{}).then(res=>{
+			var str = "";
+			for(var i=0;i<res.content.length;i++){
+				str+="<tr>";
+	            str+="<td>"+ res.content[i].username +"</td>";
+	            str+="<td>"+ (!res.content[i].time ? "注册后未登录" : formatTime(res.content[i].time)) +"</td>";
+	            str+="<td class='del' data-name="+ res.content[i].username +" data-id="+ res.content[i]["id"] +" data-type='del'>删除</td>";
+	            str+="</tr>";
+			}
+			document.getElementById('table-tbody').innerHTML = str
+		})
+
+		$_getID('table-tbody').addEventListener('click',function(event){
+			if(event.target.getAttribute('data-type')=='del'){
+				var username = event.target.getAttribute('data-name');
+				var id = event.target.getAttribute('data-id');
+				if( confirm('确定删除用户‘'+username+'’吗?') ){
+	                $_ajax('post','/user/del',{username:username,id:id})
+	                .then(res=>{
+	                    if( res.state ){
+	                        $_hint('删除成功')
+	                        event.target.parentNode.remove();
+	                    }else{
+	                        $_hint(res.msg)
+	                    }
+	                })   
+            	}
+			}
+		})
+	</script>
+</body>
+</html>

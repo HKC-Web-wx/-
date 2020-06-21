@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>jQuery版购物车</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/public.css">
+	<style type="text/css">
+		.form-control{
+			height: 40px;
+		}
+		.input-box{
+			position: relative;
+			padding-bottom: 10px;
+			overflow: hidden;
+		}
+		.box .form-control{
+			float: right;
+			width: 80%;
+		}
+		.box .input-box span{
+			line-height: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container box">
+        <form style="width: 400px;margin:100px auto;">
+            <h2 id="title">登录</h2>
+            <div class="input-box">
+                <span class="fl">用户名</span><input class="form-control" placeholder="长度2-6位的中文和数字组合,必须中文开头" type="text" id="username">
+            </div>
+            <div  class="input-box">
+                <span class="fl">密码</span><input type="password" class="form-control" placeholder="长度5-16位的字母和数字组合,必须字母开头" id="ps">
+                <!-- hkc123465 -->
+            </div>
+            <div  class="input-box" id="codebox">
+                <span class="fl">验证码</span><input type="text" class="form-control" placeholder="验证码" id="code">
+            </div>
+            <a href="javascript:" class="pull-right" id="goLogin">还没有账号，去注册</a>
+            <div id="btn" class="btn btn-lg btn-primary btn-block" style="margin-top: 30px;">登录</div>
+        </form>
+    </div>
+    <script type="text/javascript" src="javascript/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="javascript/ajax.js"></script>
+</body>
+<script type="text/javascript">
+	$(function(){
+        localStorage.clear();
+        var psReg = /^[a-zA-Z]{1}[a-zA-Z0-9]{4,15}$/;//密码数字和字母 字母开头 长度5-10
+        var usernameReg = /^[\u4e00-\u9fa5]{1}[\u4e00-\u9fa50-9]{1,5}$/;//只允许中文 1-5个中文
+        var txt1="",txt2="",hrefTxt="";
+        if( location.search.indexOf('login') !== -1 ){//通过判断url参数中是否有login字符串来判断当前是登录操作还是注册操作。
+            txt1="登录";//当前是登录操作
+            txt2 = "还没有账号，去注册";
+            hrefTxt ="/jq_carts/register.html?type=register";
+            $('#codebox').css("display","none");
+        }else{
+            //当前是注册操作
+            txt1 = "注册";
+            txt2 = "已有账号，去登陆";
+            hrefTxt ="/jq_carts/register.html?type=login";
+        }
+        //将变量存到对应的html中
+        $('#btn').text(txt1);
+        $('#title').text(txt1);
+        document.title = txt1;
+        $('#goLogin').text(txt2).attr('href', hrefTxt);
+
+        
+        //点击登录或注册按钮，获取值提交到后台验证
+        $('#btn').on("click",function(){
+            var flag = true;
+            var hint = "";
+            var zh = $('#username').val();
+            var ps = $('#ps').val();
+            if(!psReg.test(ps)){
+                flag = false;
+                hint+="密码必须同时包含字母、数字";
+            }
+            if(flag){
+                if(txt1 == "注册"){//判断当前是注册功能还是登录功能
+                    var code = $('#code').val();
+                    if(!code){
+                        $_hint("请输入验证码")
+                        return;
+                    }
+                    $_ajax("post","/register",{userName:zh,ps:ps,code:code}).done(function(res){
+                        console.log(res);
+                        if(res.state){
+                            $_hint("注册成功");
+                            location.href=hrefTxt;
+                        }else{
+                            $_hint(res.msg);
+                        }
+                        
+                    })
+                }else{
+                    $_ajax("post","/login",{userName:zh,ps:ps}).done(function(res){
+                        console.log(res);
+                        if(res.state){
+                            localStorage.setItem("token",res.token);
+                            location.href="/jq_carts/userlist.html";
+                        }else{
+                            $_hint(res.msg);
+                        }
+                    })
+                }
+            }else{
+                alert(hint);
+                hint="";
+                flag = true;
+            }
+        })
+    })
+</script>
+</html>

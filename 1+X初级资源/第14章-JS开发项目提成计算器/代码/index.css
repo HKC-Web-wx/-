@@ -1,0 +1,47 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+header{
+	text-align: center;
+	margin-bottom: 15px;
+}
+#box{
+	margin: 20px auto 0;
+	width: 300px;
+	text-align: center;
+}
+#bonus{
+	height: 50px;
+	width: 280px;
+	background-color: #f3f3f3;
+}
+#benefit{
+	height: 20px;
+	width: 140px;
+}
+#roles{
+	height: 22px;
+	width: 130px;
+	vertical-align: bottom;
+}
+#count{
+	padding-top: 10px;
+	padding-right: 11px;
+	text-align: right;
+}
+/*计算按钮*/
+#countBtn{
+	height: 25px;
+	width: 70px;
+	text-align: center;
+	background-color: #fff;
+	cursor: pointer;
+}
+#dataBox{
+	padding:10px 0;
+}
+/*输出文本框*/
+#benefit,#roles,#countBtn,#bonus{
+	border:1px solid #d4d4d4;
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>编辑商品</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/public.css">
+	<style type="text/css">
+		.imgbox{
+            position: absolute;
+            top: 10px;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            border: 1px solid #fff;
+        }
+        .img{
+            width: 100%;
+            height: auto;
+        }
+        .input-box{
+            line-height: 32px;
+            text-align: right;
+            margin-top: 10px;
+        }
+        .input{
+            width: 80%;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            outline: none;
+        }
+        .col-xs-8{
+            text-align: left;
+        }
+	</style>
+</head>
+<body>
+	<div class="container" id="box" style="position: relative;">
+        <form style="width: 600px;margin-top: 20px;">
+            <div class="input-box clearfix">
+                <div class="col-xs-4">商品图片：</div>
+                <div class="col-xs-8"><input type="file" accept="image/gif, image/jpeg" id="img"></div>
+            </div>
+            
+            <div id="btn" class="btn btn-lg btn-primary btn-block" style="margin-top: 30px;">提交</div>
+        </form>
+        <div class="imgbox" id="showimg"></div>
+    </div>
+    
+
+</body>
+<script type="text/javascript" src="javascript/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="javascript/ajax.js"></script>
+<script type="text/javascript" src="javascript/header.js"></script>
+<script type="text/javascript">
+$(function(){
+    //获取商品信息
+    var formData = new FormData();
+    var imagePath="";
+    var ShopState = 1;
+    function GetQueryString(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return unescape(r[2]); return null;
+    }
+    var shopid = GetQueryString('id');
+    if( shopid ){
+        $_ajax('get','/shop/queryshopinfo',{id:shopid}).done(function(res){
+            console.log(res);
+            cleardata(res[0]);
+            $('#showimg').html("<img class='img' src="+res[0].imagePath+">");
+        })
+    }
+
+    //将后台返回的商品信息，使用模板字符串拼接，再显示到页面上
+    function cleardata(data){
+        str = `<div  class="input-box clearfix">
+                    <div class="col-xs-4">商品名称：</div>
+                    <div class="col-xs-8"><input id="shopname" class="input" type="text" value="${data.shopName}"></div>
+                </div>
+                <div  class="input-box clearfix">
+                        <div class="col-xs-4">价格：</div>
+                        <div class="col-xs-8"><input id="shopprice" class="input" type="text" value="${data.shopPrice}"></div>
+                </div>
+                <div  class="input-box clearfix">
+                        <div class="col-xs-4">库存：</div>
+                        <div class="col-xs-8"><input id="inventory" class="input" type="text" value="${data.shopNum}"></div>
+                </div>
+                <div class="input-box clearfix">
+                        <div class="col-xs-4">商品状态：</div>
+                        <div class="col-xs-8" id="shop-state">
+                            <label for="shop-normal">
+                                正常<input type="radio" value="1"  class="shop-state" ${ data.ShopState == 1 ? 'checked' : '' } name="state" id="shop-normal">&nbsp;
+                            </label>
+                            <label for="shop-del">
+                                已下架<input type="radio" value="2" ${ data.ShopState == 2 ? 'checked' : '' } class="shop-state"  name="state" id="shop-del">&nbsp;
+                            </label>
+                        </div>
+                </div>
+                <div  class="input-box clearfix">
+                        <div class="col-xs-4">是否限购：</div>
+                        <div class="col-xs-8"><input  id="islimit" ${ data.islimit == 'true' ? 'checked' : '' } class="checkbox" type="checkbox"></div>
+                </div>
+                <div  class="input-box clearfix" style="display: ${ data.islimit == 'true' ? 'display' : 'none' };" id="limit" >
+                        <div class="col-xs-4">限购数量：</div>
+                        <div class="col-xs-8"><input id="limitnumber" value="${ data.islimit ? data.limitNumber : 0 }" class="input" type="text" placeholder="请输入限购数量"></div>
+                </div>`
+        $('#btn').before(str);
+    }
+
+    //根据是否限购控制限购选项的显示与隐藏
+    $("#box").on("click", function(event) {
+        if( event.target.id !== "islimit" ){
+            return
+        }
+        if( event.target.checked ){
+            $("#limit").css("display","block");
+        }else{
+            $("#limit").css("display","none");
+        }
+    });
+    //获取商品状态
+    $('#box').on("click",function(event){
+        if(event.target.className == "shop-state"){
+            ShopState = event.target.value;
+        }
+    })
+    //上传商品图片
+    $("#img").on("change",function(event){
+        formData.append('filsde',event.target.files[0]);
+        $.ajax({
+            url:$_http+'/shop/imageupload',
+            type:"POST",
+            dataType:"json",
+            data:formData,
+            processData:false,//不处理数据
+            contentType: false,//不设置内容类型
+            beforeSend:function(xhr){
+                xhr.setRequestHeader("token", localStorage.getItem('token'))
+            }
+        }).done(function(res){
+            if( res.state ){
+                $_hint('图片上传成功');
+                imagePath = $_http+res.imagepath;
+                $('#showimg').html("<img class='img' src="+imagePath +">");
+            }
+        }).fail(function(err){
+            console.log(err);
+        })
+    })
+    //提交编辑完成后的商品信息
+    $('#btn').click(function(){
+        var data = {};
+        console.log();
+        data.imagePath = imagePath;
+        data.shopName = $('#shopname').val().trim();//商品名称
+        data.shopPrice = $('#shopprice').val().trim();//商品价格
+        data.shopNum= $('#inventory').val().trim();//商品库存数量
+        data.ShopState = ShopState * 1;//商品状态值
+        if( $('#islimit').prop("checked") ){
+            data.islimit = true;
+            if( $('#limitnumber').val().trim() === '' ){
+                alert('请输入限购数量')
+                return;
+            }
+            data.limitNumber = $('#limitnumber').val().trim();
+        }else{
+            data.islimit = false;
+        }
+        data.id = shopid;
+        console.log(data);
+        $_ajax('post','/shop/updateShop',data).done(function(res){
+            console.log(res);
+            if( res.state ){
+                $_hint('更新成功');
+                setTimeout(function(){
+                    location.href="/jq_carts/shoplist.html"
+                },500)
+            }
+        })
+    })
+})
+	
+</script>
+</html>

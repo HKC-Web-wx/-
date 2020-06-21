@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>天气预报网</title>
+	<style type="text/css">
+		body{
+			font-size: 17px;
+		}
+
+		ul,li{
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+		}
+		li{
+			border: 1px solid #d4d4d4;
+			text-align: center;
+			border-radius: 20px;
+		}
+		li p {
+			text-align: center;
+		}
+		li:first-child{
+			background-color: rgba(199,166,4,0.1);
+		}
+
+		/*定义css3动画*/
+		@keyframes anima{
+			from{
+				transform: rotate(0deg);
+			}
+			to{
+				transform: rotate(360deg);
+			}
+		}
+		li:first-child img:hover{
+			animation-name: anima;/*使用定义好的动画*/
+			animation-duration: 10s;/*动画播放时间*/
+			animation-iteration-count: infinite;/*动画播放次数*/
+		}
+		
+		/* 定义自定义字体 */
+		@font-face{
+			font-family: cssFont;
+			src:url('font/2.ttf');
+		}
+		/* 使用 :first-child 伪类选择今天的p标签 */
+		li:first-child p {
+			font-family: cssFont;
+		}
+
+		/*flex布局*/
+		ul{
+			display: flex;
+		}
+		li{
+			/*弹性盒子分配自适应比例，为1时等比分配*/
+			flex-grow: 1;
+		}
+		/*column多列布局*/
+		#news{
+			column-count: 3;
+			column-gap: 50px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<p>今天</p>
+			<img src="images/weather1.png">
+			<p>晴天</p>
+		</li>
+		<li>
+			<p>明天</p>
+			<img src="images/weather2.png">
+			<p>阴天</p>
+		</li>
+		<li>
+			<p>后天</p>
+			<img src="images/weather3.png">
+			<p>小雨</p>
+		</li>
+	</ul>
+	<div id = "news">
+		<!-- 换行标签<br/> -->
+		<div>今天天气晴<br/>气温35°C<br/>出门注意防晒</div>
+		<div>明天阴天<br/>气温28°C<br/>适合室外活动</div>
+		<div>后天小雨<br/>气温27°C<br/>出门记得带伞</div>
+	</div>
+</body>
+</html>

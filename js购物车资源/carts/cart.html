@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/public.css">
+	<style>
+        *{
+            box-sizing: border-box;
+        }
+        .colorf40{
+            color: #f40;
+        }
+
+        .box{
+            padding-left: 220px;
+            margin: 0 auto;
+        }
+        .shop-title > div{
+            float: left;
+        }
+        .shop-title input{
+            vertical-align: text-bottom;
+            
+        }
+        .public-checkbox{
+            width: 10%;
+            padding-left: 10px;
+        }
+        .public-info{
+            width: 50%;
+        }
+        .public-number{
+            width: 17%;
+        }
+        .public-price{
+            width: 13%;
+        }
+        .public-option{
+            width: 10%;
+        }
+        .box1{
+            min-height: 100px;
+            border-top: 1px solid lightgray;
+        }
+        .cart-null{
+            font-size: 30px;
+            color: lightgray;
+            text-align: center;
+            line-height: 100px;
+        }
+        .box1 .shop-image{
+            width: 30%;
+            border: 1px solid lightgray;
+        }
+        .box1 .shop-image img{
+            width: 100%;
+        }
+        .public-detail{
+            width: 70%;
+            padding-left: 10px;
+        }
+        .public-detail a{
+            display: block;
+        }
+        .box1{
+            padding: 10px 0;
+        }
+        .box1 > li{
+            float: left;
+
+        }
+        .box-number span{
+            width: 30px;
+            height: 30px;
+            border: 1px solid lightgray;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .box-number input{
+            width: 40px;
+            height: 30px;
+            text-align: center;
+        }
+        .limit-number{
+            font-size: 12px;
+            color: #9c9c9c;
+        }
+        .shop-total-info{
+            position: fixed;
+            bottom: 0;
+            background: #e5e5e5;
+            z-index: 99;
+            left: 220px;
+            width: 800px;
+            height: 50px;
+            padding: 10px 0 ;
+        }
+        .shop-total-info > div{
+            float: left;
+            width: 33.333%;
+        }
+        #disabledShop{
+            border-top: 1px solid lightgray;
+            
+        }
+        #disabledShop .box-number span{
+            cursor:no-drop;
+        }
+        #disabledShop .box-number input{
+            cursor:no-drop;
+        }
+        .public-option{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+	<div class="box">
+        <div style="width: 800px;background: #fff;">
+            <div class="shop-title clearfix">
+                <div class="all public-checkbox">
+                    <input id="checkbox-all" type="checkbox">
+                    <label for="checkbox-all">
+                       全选
+                    </label>
+                </div>
+                <div class="shop-info public-info">
+                    商品信息
+                </div>
+                <div class="shop-number public-number">
+                    数量
+                </div>
+                <div class="shop-price public-price">
+                    金额
+                </div>
+                <div class="shop-option public-option">
+                    操作
+                </div>
+            </div>
+            <div id="cart-list">
+				
+			</div>
+            <div id="disabledShop"></div>
+            <div class="shop-total-info">
+                <div><input id="checkbox-all1" type="checkbox">全选</div>
+                <div class="">
+                    已选<span id="totlaNumber">0</span>件商品
+                </div>
+                <div>
+                    总价<span id="totlePrice">0.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="javascript/ajax.js"></script>
+<script type="text/javascript" src="javascript/header.js"></script>
+<script type="text/javascript">
+	var cartTimer;
+	var global_cartShop = [];//状态值为1的商品数组
+    var global_checkedCartId = [];//选中的商品id数组
+    $_ajax('get','/cart/cartlist',{}).then(res=>{
+    	if(res.state && res.content.length !== 0){
+    		var data = res.content;
+    		var validShop = "";
+    		var disabledShop = "<div style='color:red;padding:15px 0'>以下商品已经下架或者已经被删除</div>";
+            var str = "";
+            console.log(data)
+            for (var i = 0; i < data.length; i++) {
+                data[i].state == '1' ? global_cartShop.push(data[i]) : '';
+                str += '<ul class="box1 clearfix">'
+                str += '<li class="public-checkbox">';
+                if (data[i].state == '2' || data[i].state == '3') {
+                    str += '<input type="checkbox" disabled title="该商品已下架或被删除">';
+                } else {
+                    str += '<input data-id="' + data[i]['_id'] + '" class="shop-checked" type="checkbox">';
+                }
+                str += '</li>';
+                str += '<li class="public-info clearfix">'
+                str += '<div class="shop-image fl">'
+                str += '<img src="' + $_http + data[i].imagePath + '" alt="">'
+                str += '</div>'
+                str += '<div class="fl public-detail">'
+                str += '<a href="" class="shop-detail-title">' + data[i].shopName + '</a>';
+                if (data[i].islimit === "true") {
+                    str += '<p style="padding-top:10px" class="limit-number">该商品限购<span class="colorf40">' + data[i].limitNumber + '</span>件</p>'
+                }
+                str += '<p class="limit-number">库存' + data[i].shopNum + '件</p>'
+                str += '</div>'
+                str += '</li>'
+                str += '<li class="public-number">'
+                if (data[i].islimit === "true") {
+                    str += '<div class="box-number clearfix" data-limitnumer="' + data[i]['limitNumber'] + '" data-shopid="' + data[i]['_id'] + '">'
+                } else {
+                    str += '<div class="box-number clearfix" data-shopid="' + data[i]['_id'] + '">'
+                }
+                str += '<span class="fl reduce">-</span>'
+                str += '<input ' + (data[i].state == '2' ? 'disabled' : '') + ' value="' + data[i].number + '" class="fl" type="text">'
+                str += '<span class="fl add">+</span>'
+                str += '</div>'
+                str += '</li>'
+                str += '<li class="public-price">' + data[i].shopPrice + '</li>'
+                str += '<li class="public-option J_del_shop" data-id="' + data[i]['_id'] + '" data-name="' + data[i].shopName + '">删除</li>'
+                str += '</ul>';
+
+                if (data[i].state === 1) {
+                    validShop += str;//未删除商品列表
+                } else {
+                    disabledShop += str;//下架和删除的商品列表
+                }
+                str = "";
+            }
+            $_getID('cart-list').innerHTML = validShop;
+            $_getID('disabledShop').innerHTML = disabledShop;
+        }
+    })
+
+    //列表全选按钮
+    $_getID('checkbox-all').onclick = function(event){
+    	var input = document.getElementsByClassName('shop-checked');
+    	var flag = event.target.checked;//全选框是否选中
+    	global_checkedCartId=[];
+    	$_getID('checkbox-all1').checked = flag;
+    	for(var i=0;i<input.length;i++){
+    		input[i].checked = flag;
+    	}
+    	if(flag){
+    		for(var i=0;i<global_cartShop.length;i++){
+    			global_checkedCartId.push(global_cartShop[i]['_id']);
+    		}
+            console.log(global_cartShop);
+            console.log(global_checkedCartId);
+    	}else{
+    		global_checkedCartId = [];
+    	}
+        imputedPrice();
+    }
+    //底部全选按钮
+    $_getID('checkbox-all1').onclick = function(){
+    	$_getID('checkbox-all').click();
+    }
+    //每个商品前的选中框
+    $_getID('cart-list').addEventListener('click', function (event) {
+        if (event.target.classList.contains('shop-checked')) {
+            var id = event.target.getAttribute('data-id')
+            if (event.target.checked) {
+                global_checkedCartId.push(id);
+            } else {
+                var index = global_checkedCartId.indexOf(id);
+                global_checkedCartId.splice(index, 1);
+            }
+            imputedPrice();
+        }
+    })
+
+    //计算商品价格和
+    function imputedPrice(){
+    	var price = 0;
+    	var cartShopLength = global_cartShop.length;
+        var cartIdLength = global_checkedCartId.length;
+        if (cartShopLength === 0 || cartIdLength === 0) {
+            $_getID('totlaNumber').innerHTML = 0;
+            $_getID('totlePrice').innerHTML = '0.00';
+            return;
+        }
+        for (var j = 0; j < cartIdLength; j++) {
+            for (var i = 0; i < cartShopLength; i++) {
+                if (global_checkedCartId[j] === global_cartShop[i]['_id']) {
+                    price += global_cartShop[i].shopPrice * global_cartShop[i].number
+                    continue;
+                }
+            }
+        }
+        if (cartShopLength === cartIdLength) {
+            $_getID('checkbox-all').checked = true;
+            $_getID('checkbox-all1').checked = true;
+        } else {
+            $_getID('checkbox-all').checked = false;
+            $_getID('checkbox-all1').checked = false;
+        }
+        $_getID('totlaNumber').innerHTML = cartIdLength;
+        $_getID('totlePrice').innerHTML = price.toFixed(2);
+    }
+
+    //商品'+' '-' 按钮
+    $_getID('cart-list').addEventListener('click',function(event){
+    	if(event.target.classList.contains('reduce') || event.target.classList.contains('add')){
+    		var parent = event.target.parentNode;
+    		var id = parent.getAttribute('data-shopid');
+            var input = parent.getElementsByTagName('input')[0];
+            var number = input.value;
+            var limitNumber = parent.getAttribute('data-limitnumer');
+            if(event.target.classList.contains('reduce')){
+            	if(number == 1){
+            		$_hint('商品最低数量为1');
+            		return;
+            	}
+            	number --;
+            }else{
+            	if(limitNumber){
+            		if(limitNumber == number){
+            			$_hint('该商品每人限购'+limitNumber+'件');
+            			return;
+            		}
+            	}
+            	number ++;
+            }
+            input.value = number;
+            clearTimeout(cartTimer);
+            cartTimer = setTimeout(function(){
+            	$_ajax('post','/cart/changeNumber',{id:id,number:number}).then(res=>{
+            		if(res.state){
+            			for(var i=0;i<global_cartShop.length;i++){
+            				if(global_cartShop[i]['_id'] == id){
+            					global_cartShop[i].number = number;
+            					break;
+            				}
+            			}
+            			imputedPrice();
+            		}
+            		$_hint(res.msg);
+            	})
+            },200)
+    	}
+    })
+
+    //删除商品
+    $_getID('cart-list').addEventListener('click',function(event){
+    	if (event.target.classList.contains('J_del_shop') && confirm('确定删除商品‘' + event.target.getAttribute('data-name') + '’?')) {
+    		delShop(event.target)
+    	}
+    })
+    $_getID('disabledShop').addEventListener('click', function (event) {
+        if (event.target.classList.contains('J_del_shop') && confirm('确定删除商品‘' + event.target.getAttribute('data-name') + '’?')) {
+            delShop(event.target)
+        }
+    })
+    function delShop(el) {
+        var id = el.getAttribute('data-id')
+        $_ajax('post', '/cart/delShop', { id: id }).then(res => {
+            if (res.state) {
+                for (var i = 0; i < global_cartShop.length; i++) {
+                	console.log(global_cartShop[i]);
+                    if (global_cartShop[i]['_id'] === id) {
+                        global_cartShop.splice(i, 1)
+                        break;
+                    }
+                }
+                for (var i = 0; i < global_cartShop.length; i++) {
+                    if (global_cartShop[i]['_id'] === id) {
+                        global_cartShop.splice(i, 1)
+                        break;
+                    }
+                }
+                el.parentNode.remove(true);
+                getCartNumber();
+                (global_checkedCartId.indexOf(id) === -1 ? '' : global_checkedCartId.splice(global_checkedCartId.indexOf(id), 1))
+                imputedPrice();
+            }
+            $_hint(res.msg)
+        })
+    }
+
+</script>
+</html>

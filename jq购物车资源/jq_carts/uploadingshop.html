@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>上传商品</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/public.css">
+	<style type="text/css">
+		.imgbox{
+            position: absolute;
+            top: 10px;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            border: 1px solid #fff;
+        }
+        .img{
+        	width: 100%;
+        	height: auto;
+        }
+        .input-box{
+            line-height: 32px;
+            text-align: right;
+            margin-top: 10px;
+        }
+        .input{
+            width: 80%;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            outline: none;
+        }
+        .col-xs-8{
+            text-align: left;
+        }
+	</style>
+</head>
+<body>
+	<div class="container" style="position: relative;">
+            <form style="width: 600px;margin-top: 20px;">
+                <div class="input-box clearfix">
+                    <div class="col-xs-4">商品图片：</div>
+                    <div class="col-xs-8"><input type="file" accept="image/gif, image/jpeg" id="img"></div>
+                </div>
+                <div  class="input-box clearfix">
+                    <div class="col-xs-4">商品名称：</div>
+                    <div class="col-xs-8"><input id="shopname" class="input" type="text"></div>
+                </div>
+                <div  class="input-box clearfix">
+                        <div class="col-xs-4">价格：</div>
+                        <div class="col-xs-8"><input id="shopprice" class="input" type="text"></div>
+                </div>
+                <div  class="input-box clearfix">
+                        <div class="col-xs-4">库存：</div>
+                        <div class="col-xs-8"><input id="inventory" class="input" type="text"></div>
+                </div>
+                <div class="input-box clearfix">
+                        <div class="col-xs-4">商品状态：</div>
+                        <div class="col-xs-8" id="shop-state">
+                            <label for="shop-normal">
+                                正常<input type="radio" value="1" class="shop-state" checked name="state" id="shop-normal">&nbsp;
+                            </label>
+                            <label for="shop-down">
+                                已下架<input type="radio" value="2" class="shop-state"  name="state" id="shop-down">&nbsp;
+                            </label>
+                        </div>
+                </div>
+                <div  class="input-box clearfix">
+                        <div class="col-xs-4">是否限购：</div>
+                        <div class="col-xs-8"><input  id="islimit" class="checkbox" type="checkbox"></div>
+                </div>
+                <div  class="input-box clearfix" style="display: none;" id="limit" >
+                        <div class="col-xs-4">限购数量：</div>
+                        <div class="col-xs-8"><input id="limitnumber" class="input" type="text" placeholder="请输入限购数量"></div>
+                </div>
+                <div id="btn" class="btn btn-lg btn-primary btn-block" style="margin-top: 30px;">提交</div>
+            </form>
+            <div class="imgbox" id="showimg"></div>
+        </div>
+</body>
+<script type="text/javascript" src="javascript/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="javascript/ajax.js"></script>
+<script type="text/javascript" src="javascript/header.js"></script>
+<script type="text/javascript">
+	var formData = new FormData();
+    var imagePath="";
+    var ShopState = 1;
+    //图片上传
+    $("#img").on("change",function(event){
+        formData.append('filsde',event.target.files[0]);
+        console.log(event.target.files[0]);
+        $.ajax({
+            url:$_http+'/shop/imageupload',
+            type:"POST",
+            dataType:"json",
+            data:formData,
+            processData:false,//不处理数据
+            contentType: false,//不设置内容类型
+            beforeSend:function(xhr){
+                xhr.setRequestHeader("token", localStorage.getItem('token'))
+            }
+        }).done(function(res){
+            console.log(res);
+            if( res.state ){
+                $_hint('图片上传成功');
+                imagePath = $_http + res.imagepath;
+                $('#showimg').html("<img class='img' src="+imagePath +">");
+                
+            }
+        }).fail(function(err){
+            console.log(err);
+        })
+    })
+    //限购区块显示/隐藏
+    $('#islimit').click(function(){
+        if(this.checked){
+            $('#limit').css("display","block");
+        }else{
+            $('#limit').css("display","none");
+        }
+    })
+    //商品状态值
+    $('#shop-state').click(function(event){
+        if(event.target.className == "shop-state"){
+            ShopState = event.target.value * 1;
+        }
+    })
+    //提交商品信息
+    $('#btn').click(function(){
+        var data = {};
+        data.imagePath = imagePath;//商品图片地址
+        data.shopName = $('#shopname').val().trim();//商品名称
+        data.shopPrice = $('#shopprice').val().trim();//商品价格
+        data.shopNum= $('#inventory').val().trim();//库存
+        data.ShopState = ShopState * 1;//状态
+        if(data.imagePath == "") {$_hint("请选择图片"); return;};
+        if(data.shopName == "") {$_hint("请输入商品名称"); return};
+        if(data.shopPrice == "") {$_hint("请输入商品价格"); return};
+        if(data.shopNum == "") {$_hint("请输入商品库存"); return};
+        if( $('#islimit').prop("checked") ){
+            data.islimit = true;
+            if( $('#limitnumber').val().trim() === '' ){
+                alert('请输入限购数量')
+                return;
+            }
+            data.limitNumber = $('#limitnumber').val().trim() * 1;
+        }else{
+            data.islimit = false;
+        }
+        console.log(data);
+        $_ajax('post','/shop/addshop',data).done(function(res){
+            if( res.state ){
+                $_hint('上传成功');
+                setTimeout(function(){
+                    location.href="/jq_carts/shoplist.html"
+                },500)
+            }
+        })
+    })
+</script>
+</html>

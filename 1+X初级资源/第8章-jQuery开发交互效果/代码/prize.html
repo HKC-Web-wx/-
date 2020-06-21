@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手机号抽奖</title>
+	<style type="text/css">
+		#div_p {
+			position: relative;
+		}
+		#div_p p{
+			position: relative;
+		}
+	</style>
+</head>
+<body style="text-align: center;">
+	<h2>抽奖列表</h2>
+	<div id="div_p" style="text-align: left;">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+	<button type="button" id="btn_prize">开始抽奖</button>
+	<button type="button" id="btn_re">重置抽奖</button>
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+var number = ['158','173','136','135','170','131','155','133','153','180','189','137','138','139','159','187','188','132'];
+function create_animation(i,temp){
+	//向p标签赋值手机号码
+	$("#div_p p:eq(" + i +")").prepend(temp);
+	//设置从左到右的动画
+	$("#div_p p:eq(" + i +")").animate({
+		left:'44%'
+	});
+}
+
+$(function(){
+	for(var i=0;i<10;i++){
+		var temp = number[Math.floor(Math.random()*number.length)];
+		for(var j=0;j<8;j++){
+			temp = temp + Math.floor(Math.random()*10);
+		}
+		//设置延时动画
+		setTimeout(create_animation(i,temp),0);
+	}
+})
+
+
+$("#btn_prize").click(function(){
+	var temp = Math.floor(Math.random()*10);
+		for(var i=0;i<=10;i++){
+			if( i != temp){
+				//没有抽到的手机号码，设置fade动画（jQuery UI）
+				$("#div_p p:eq(" + i +")").toggle("fade");
+			}else{
+				//抽到的手机号码，设置css样式动画
+				$("#div_p p:eq(" + i +")").animate({
+					fontSize:"2em",
+					left:"40%",
+					//jQuery UI 插件提供了颜色动画
+					backgroundColor:"#aa0000",
+					color:"#fff",
+					width:210,
+				}).css("color","RED");
+			}
+		}
+	$("#btn_prize").attr("disabled","true");
+})
+
+$("#btn_re").click(function(){
+	$("body").toggle("puff");
+	setTimeout(function(){
+		//重载页面
+		window.location.reload();
+	},1000)
+})
+</script>
+</html>

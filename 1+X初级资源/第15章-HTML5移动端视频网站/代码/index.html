@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+	<title>视频网站</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<header>
+		<h2>视频播放器</h2><!-- 标题 -->
+		<small>这是页头</small>
+	</header><!-- 定义页头 -->
+	<article><!-- 定义正文 -->
+		<section>
+			<figure>
+				<video width="90%" controls loop>
+					<source src="video/video1.mp4" type="video/mp4"></source>
+					当前浏览器不支持video直接播放，点击这里下载视频
+					<a href="video/video1.mp4" download="video1.mp4">下载视频</a>
+				</video>
+				<figcaption>Come On,China</figcaption>
+			</figure>
+		</section><!-- 定义段落 -->
+
+		<section>
+			<form autocomplete="on">
+				<div>
+					<textarea name="input" rows="3" cols="20" placeholder="请输入评论..." title="评论框" accesskey="g" spellcheck="true" id="content"></textarea>
+				</div>
+				<button type="button" onclick="sendComment()">
+					<mark>发表评论</mark>
+				</button>
+			</form>
+		</section><!-- 定义段落 -->
+
+		<section>
+			<ul id="commentList"></ul>
+		</section><!-- 定义段落 -->
+	</article>
+	<footer>
+		<h2>视频播放器</h2>
+		<small>这是页脚</small>
+	</footer><!-- 定义页脚 -->
+</body>
+<script type="text/javascript">
+	// ul元素
+	var list = document.getElementById('commentList');
+	//评论内容
+	var text = document.getElementById('content');
+	function sendComment(){
+		// 点击发表评论时，动态创建一个li元素，存放评论内容，并将li放入ul中
+		var li = document.createElement('li');
+		li.innerHTML = text.value;
+		list.appendChild(li);
+		text.value = "";
+		//阻止表单提交
+		return false;
+	}
+</script>
+</html>

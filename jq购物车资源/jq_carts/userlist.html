@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>用户列表</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+   	<link rel="stylesheet" type="text/css" href="stylesheets/public.css">
+	
+</head>
+<body>
+	 <table class="table table-striped" style="width: 500px;margin:50px auto;">
+        <thead>
+            <tr>
+                <td>用户名</td>
+                <td>最近登录时间</td>
+            </tr>
+        </thead>
+        <tbody id="table-tbody">
+            
+        </tbody>
+    </table>
+    <script type="text/javascript" src="javascript/jquery-3.3.1.min.js"></script>
+	<script src="./javascript/ajax.js"></script>
+	<script src="./javascript/header.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			function formatTime(time){
+				var dt = new Date(time);
+				var year = dt.getFullYear();
+				var month = dt.getMonth();
+				var day = dt.getDate();
+				var hour = dt.getHours();
+				var minute = dt.getMinutes();
+				var second = dt.getSeconds();
+				month+=1;
+				month = month < 10 ? "0"+month :month;
+				day = day < 10 ? "0"+day :day;
+				hour = hour < 10 ? "0"+hour :hour;
+				minute = minute < 10 ? "0"+minute : minute;
+				second = second < 10 ? "0"+second :second;
+				return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second
+			}
+			$_ajax('get','/user/userall',{}).done(function(res){
+				var str = "";
+				for(var i=0;i<res.content.length;i++){
+					str+="<tr>";
+		            str+="<td>"+ res.content[i].username +"</td>";
+		            str+="<td>"+ (!res.content[i].time ? "注册后未登录" : formatTime(res.content[i].time)) +"</td>";
+		            str+="<td class='del' data-name="+ res.content[i].username +" data-id="+ res.content[i]["id"] +" data-type='del'>删除</td>";
+		            str+="</tr>";
+				}
+				$('#table-tbody').html(str);
+			})
+
+			$('#table-tbody').on('click','.del',function(e){
+				if($(e.target).attr('data-type')=='del'){
+					var username = $(e.target).attr('data-name');
+					var id = $(e.target).attr('data-id');
+					if(confirm('确定删除用户‘'+username+'’吗?')){
+						$_ajax('post','/user/del',{username:username,id:id}).done(function(res){
+							if(res.state){
+								$_hint('删除成功');
+								$(e.target).parent().remove();
+							}else{
+								$_hint(res.msg);
+							}
+						})
+					}
+				}
+			})
+		})
+		
+	</script>
+</body>
+</html>
