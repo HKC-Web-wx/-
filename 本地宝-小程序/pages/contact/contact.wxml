@@ -1,0 +1,23 @@
+<view class="cell-item">
+    <input type="password" placeholder="请输入密码"></input>
+</view>
+<view class="cell-item">
+    <input type="text" placeholder="请输入文本"></input>
+</view>
+<view class="cell-item">
+    <input type="idcard" placeholder="请输入身份证"></input>
+</view>
+<view class="divider"></view>
+<view class="cell-item">
+    <checkbox></checkbox>高中
+    <checkbox></checkbox>初中
+    <checkbox></checkbox>小学
+</view>
+<view class="cell-item">
+    <radio-group bindchange="radioChangeHandle" data-index="1">
+        <radio value="man"></radio>男
+        <radio value="woman"></radio>女
+        <radio value="NO"></radio>保密
+    </radio-group  >
+    <switch>显示</switch>
+</view>

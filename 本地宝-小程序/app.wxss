@@ -1,0 +1,48 @@
+/* 间隔封装 */
+.divider{
+  height: 20rpx;
+  background-color: #eee;
+  box-shadow: 0 5rpx 5rpx rgba(0,0,0,0.1)
+}
+/* 右箭头> */
+.rightArrow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rightArrow::after{
+    content: "";
+    width: 15rpx;
+    height: 15rpx;
+    border-top:3rpx solid #bbb;
+    border-right: 3rpx solid #bbb;
+    transform: rotate(45deg);
+    display:block;
+}
+
+.cell{
+    font-size:16px;
+}
+.cell-item{
+    border-bottom: 1px solid #eee;
+    padding:20rpx 30rpx;
+}
+/* 评分星 */
+.star-after{
+    color:#e2e2e2;
+}
+.star-before{
+    color:#f19e38;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 52%;
+    overflow: hidden;
+}
+
+/* 单行超出变省略号 */
+.ellipse{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

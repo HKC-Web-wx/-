@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "searchbar":"/components/searchbar/searchbar",
+    "stars":"/components/stars/stars",
+    "itemview": "/components/itemview/itemview",
+    "indexmodule": "/components/indexmodule/indexmodule",
+    "onecomment": "/components/onecomment/onecomment"
+  }
+}

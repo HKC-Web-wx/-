@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="slider">
+    <swiper indicator-dots="true" autoplay="是否自动切换" interval="4000" duration="1200" circular="true">
+        <swiper-item wx:for="{{sliderList}}" wx:key="id">
+            <image src="{{item.image}}" mode="aspectFill" lazy-load="true"/>
+        </swiper-item>
+    </swiper>
+</view>
+<!-- 首页导航栏 -->
+<view class='index-nav'>
+    <navigator class='nav-item' url="/pages/shopsList/shopsList?cat={{item.id}}&title={{item.name}}" wx:for="{{navList}}" wx:key="id">
+        <image src='{{item.icon}}' lazy-load="true"></image>
+        <text>{{item.name}}</text>
+    </navigator>
+</view>
+
+<view class="divider"></view>
+
+<!-- 首页入口分区 -->
+<view class="index-enter">
+    <navigator>
+        <image src="/assets/images/link-01.png" lazy-load="true"></image>
+    </navigator>
+    <navigator>
+        <image src="/assets/images/link-02.png" lazy-load="true"></image>
+    </navigator>
+</view>
